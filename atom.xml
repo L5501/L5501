@@ -59,27 +59,6 @@
   </entry>
   
   <entry>
-    <title>菜谱</title>
-    <link href="https://www.mentaltest.run/posts/70a7eda9.html"/>
-    <id>https://www.mentaltest.run/posts/70a7eda9.html</id>
-    <published>2025-02-26T12:33:59.356Z</published>
-    <updated>2025-02-26T12:33:59.356Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="擂辣椒茄子皮蛋">擂辣椒茄子皮蛋</h3><p>主料：茄子(1个)，皮蛋（2个)，辣椒（看个人，一般两个）</p><p>辅料：蒜，芝麻油</p><p>酱料：老抽（2勺），陈醋（2勺），蚝油（1勺），少量盐</p><p>步骤：</p><ol><li>茄子洗净去皮切成小粗条，放锅上去蒸</li><li>皮蛋剥壳切块</li><li>茄子蒸软后放入碗中</li><li>大蒜切粒</li><li>辣椒洗干净放入锅中加油煎软，撕去表皮</li><li>放放酱料一起捣烂</li></ol>]]></content>
-    
-    
-    <summary type="html">这只是个测试文件</summary>
-    
-    
-    
-    <category term="杂类" scheme="https://www.mentaltest.run/categories/%E6%9D%82%E7%B1%BB/"/>
-    
-    
-    <category term="菜谱" scheme="https://www.mentaltest.run/tags/%E8%8F%9C%E8%B0%B1/"/>
-    
-  </entry>
-  
-  <entry>
     <title>欢迎来到我的博客</title>
     <link href="https://www.mentaltest.run/posts/b250e9bb.html"/>
     <id>https://www.mentaltest.run/posts/b250e9bb.html</id>
@@ -97,6 +76,27 @@
     
     
     <category term="日志" scheme="https://www.mentaltest.run/tags/%E6%97%A5%E5%BF%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>菜谱</title>
+    <link href="https://www.mentaltest.run/posts/70a7eda9.html"/>
+    <id>https://www.mentaltest.run/posts/70a7eda9.html</id>
+    <published>2025-02-26T12:33:59.356Z</published>
+    <updated>2025-02-26T12:33:59.356Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="擂辣椒茄子皮蛋">擂辣椒茄子皮蛋</h3><p>主料：茄子(1个)，皮蛋（2个)，辣椒（看个人，一般两个）</p><p>辅料：蒜，芝麻油</p><p>酱料：老抽（2勺），陈醋（2勺），蚝油（1勺），少量盐</p><p>步骤：</p><ol><li>茄子洗净去皮切成小粗条，放锅上去蒸</li><li>皮蛋剥壳切块</li><li>茄子蒸软后放入碗中</li><li>大蒜切粒</li><li>辣椒洗干净放入锅中加油煎软，撕去表皮</li><li>放放酱料一起捣烂</li></ol>]]></content>
+    
+    
+    <summary type="html">这只是个测试文件</summary>
+    
+    
+    
+    <category term="杂类" scheme="https://www.mentaltest.run/categories/%E6%9D%82%E7%B1%BB/"/>
+    
+    
+    <category term="菜谱" scheme="https://www.mentaltest.run/tags/%E8%8F%9C%E8%B0%B1/"/>
     
   </entry>
   
@@ -143,6 +143,27 @@
   </entry>
   
   <entry>
+    <title>如何处理亿级用户的登录状态查询</title>
+    <link href="https://www.mentaltest.run/posts/41763455.html"/>
+    <id>https://www.mentaltest.run/posts/41763455.html</id>
+    <published>2025-02-26T12:33:59.355Z</published>
+    <updated>2025-02-26T12:33:59.355Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="假如系统需要统计一个上亿级别的的用户在线状态">假如系统需要统计一个上亿级别的的用户在线状态</h2><h3 id="方案一：">方案一：</h3><p>在数据库的基础上增加一个缓存，然后把登录状态存到redis里，在redis中去定义set类型的key，主要用来存储记录登录用户的ID。现在我们假设这个key叫login_user，如果用户登录，就往login_user中增加这个用户的id，如果用户登出就把这个key从set中删去，然后再用scard命令来统计set中的用户id的数量。</p><p>（但是这个方法对内存的消耗会有点大）</p><h3 id="方案二：">方案二：</h3><p>使用redis的bitmap来存储数据，bitmap本身就是为了亿级数据而诞生的，可以使用他的几个命令，如setbit、getbit和bigcount，用户登录可以用setbit命令去设置一个key为login_status的内容，然后将用户id作为一个位移值，将这个值设为1，即状态为1，那么当用户登出的时候，我们可以使用setbit命令将其状态改为0，如果是判断某个用户是否在线，可以使用getbit命令，如果是统计登录用户数量，可以使用bigcount来进行统计</p><p>（此方法优点是快，去重查重效率高，缺点是bitmap的位移值只能是数字，用户id也只能是自增的纯数字id，不适合分布式架构）</p><h2 id="如果是实现热力地图">如果是实现热力地图</h2><p>则可以使用redis的GEO，使用geoadd、geopos和geohash这些命令</p><p>当然，现在使用es的GEO更省事，如果加上ELK组合，则可以直接生成</p>]]></content>
+    
+    
+    <summary type="html">如何处理亿级用户的登录状态查询</summary>
+    
+    
+    
+    <category term="Java笔记" scheme="https://www.mentaltest.run/categories/Java%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="情景问题" scheme="https://www.mentaltest.run/tags/%E6%83%85%E6%99%AF%E9%97%AE%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
     <title>常用sql语句</title>
     <link href="https://www.mentaltest.run/posts/6605dc2.html"/>
     <id>https://www.mentaltest.run/posts/6605dc2.html</id>
@@ -181,27 +202,6 @@
     
     
     <category term="微信小程序笔记" scheme="https://www.mentaltest.run/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何处理亿级用户的登录状态查询</title>
-    <link href="https://www.mentaltest.run/posts/41763455.html"/>
-    <id>https://www.mentaltest.run/posts/41763455.html</id>
-    <published>2025-02-26T12:33:59.355Z</published>
-    <updated>2025-02-26T12:33:59.355Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="假如系统需要统计一个上亿级别的的用户在线状态">假如系统需要统计一个上亿级别的的用户在线状态</h2><h3 id="方案一：">方案一：</h3><p>在数据库的基础上增加一个缓存，然后把登录状态存到redis里，在redis中去定义set类型的key，主要用来存储记录登录用户的ID。现在我们假设这个key叫login_user，如果用户登录，就往login_user中增加这个用户的id，如果用户登出就把这个key从set中删去，然后再用scard命令来统计set中的用户id的数量。</p><p>（但是这个方法对内存的消耗会有点大）</p><h3 id="方案二：">方案二：</h3><p>使用redis的bitmap来存储数据，bitmap本身就是为了亿级数据而诞生的，可以使用他的几个命令，如setbit、getbit和bigcount，用户登录可以用setbit命令去设置一个key为login_status的内容，然后将用户id作为一个位移值，将这个值设为1，即状态为1，那么当用户登出的时候，我们可以使用setbit命令将其状态改为0，如果是判断某个用户是否在线，可以使用getbit命令，如果是统计登录用户数量，可以使用bigcount来进行统计</p><p>（此方法优点是快，去重查重效率高，缺点是bitmap的位移值只能是数字，用户id也只能是自增的纯数字id，不适合分布式架构）</p><h2 id="如果是实现热力地图">如果是实现热力地图</h2><p>则可以使用redis的GEO，使用geoadd、geopos和geohash这些命令</p><p>当然，现在使用es的GEO更省事，如果加上ELK组合，则可以直接生成</p>]]></content>
-    
-    
-    <summary type="html">如何处理亿级用户的登录状态查询</summary>
-    
-    
-    
-    <category term="Java笔记" scheme="https://www.mentaltest.run/categories/Java%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="情景问题" scheme="https://www.mentaltest.run/tags/%E6%83%85%E6%99%AF%E9%97%AE%E9%A2%98/"/>
     
   </entry>
   
@@ -248,27 +248,6 @@
   </entry>
   
   <entry>
-    <title>vue自定义组件</title>
-    <link href="https://www.mentaltest.run/posts/ec24c4ee.html"/>
-    <id>https://www.mentaltest.run/posts/ec24c4ee.html</id>
-    <published>2025-02-26T12:33:59.354Z</published>
-    <updated>2025-02-26T12:33:59.354Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>组件<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 1.自定义标签 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">L5501</span>&gt;</span><span class="tag">&lt;/<span class="name">L5501</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 2.自定义标签绑定固定值 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">jumparading</span> <span class="attr">num</span>=<span class="string">&quot;二&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">jumparading</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 3.自定义标签绑定变量 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">hunter</span> <span class="attr">v-bind:three</span>=<span class="string">&quot;number&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">hunter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// 1.自定义标签</span></span></span><br><span class="line"><span class="language-javascript"><span class="title class_">Vue</span>.<span class="title function_">component</span>(<span class="string">&#x27;L5501&#x27;</span>,&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">template</span>: <span class="string">&#x27;&lt;h1&gt; 这是第一个组件 &lt;h1&gt;&#x27;</span></span></span><br><span class="line"><span class="language-javascript">&#125;)</span></span><br><span class="line"><span class="language-javascript"><span class="comment">// 2.自定义标签绑定固定值</span></span></span><br><span class="line"><span class="language-javascript"><span class="title class_">Vue</span>.<span class="title function_">component</span>(<span class="string">&#x27;jumparading&#x27;</span>,&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">props</span>: [<span class="string">&#x27;num&#x27;</span>],</span></span><br><span class="line"><span class="language-javascript"><span class="attr">template</span>: <span class="string">&#x27;&lt;h2&gt; 这是第&#123;&#123;num&#125;&#125;个组件 &lt;h2&gt;&#x27;</span></span></span><br><span class="line"><span class="language-javascript">&#125;)</span></span><br><span class="line"><span class="language-javascript"><span class="comment">// 3.自定义标签绑定变量</span></span></span><br><span class="line"><span class="language-javascript"><span class="title class_">Vue</span>.<span class="title function_">component</span>(<span class="string">&#x27;hunter&#x27;</span>,&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">props</span>: [<span class="string">&#x27;three&#x27;</span>],</span></span><br><span class="line"><span class="language-javascript"><span class="attr">template</span>: <span class="string">&#x27;&lt;h2&gt; 这是第&#123;&#123;three&#125;&#125;个组件 &lt;h2&gt;&#x27;</span></span></span><br><span class="line"><span class="language-javascript">&#125;)</span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> app = <span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">el</span>: <span class="string">&#x27;#app&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript"><span class="attr">data</span>:&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">number</span>:<span class="string">&#x27;三&#x27;</span></span></span><br><span class="line"><span class="language-javascript">&#125;,</span></span><br><span class="line"><span class="language-javascript">&#125;)</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-    <summary type="html">vue自定义组件</summary>
-    
-    
-    
-    <category term="前端笔记" scheme="https://www.mentaltest.run/categories/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="vue笔记" scheme="https://www.mentaltest.run/tags/vue%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
     <title>vue实例</title>
     <link href="https://www.mentaltest.run/posts/2248cef4.html"/>
     <id>https://www.mentaltest.run/posts/2248cef4.html</id>
@@ -290,23 +269,23 @@
   </entry>
   
   <entry>
-    <title>windows激活</title>
-    <link href="https://www.mentaltest.run/posts/91cf1372.html"/>
-    <id>https://www.mentaltest.run/posts/91cf1372.html</id>
+    <title>vue自定义组件</title>
+    <link href="https://www.mentaltest.run/posts/ec24c4ee.html"/>
+    <id>https://www.mentaltest.run/posts/ec24c4ee.html</id>
     <published>2025-02-26T12:33:59.354Z</published>
     <updated>2025-02-26T12:33:59.354Z</updated>
     
-    <content type="html"><![CDATA[<p>用管理员权限打开DOS命令窗口，输入以下的命令即可</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">slmgr /skms kms.v0v.bid &amp;&amp; slmgr /ato</span><br></pre></td></tr></table></figure><p>本人win10亲测有效，其他的版本暂时没试过</p>]]></content>
+    <content type="html"><![CDATA[<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>组件<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 1.自定义标签 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">L5501</span>&gt;</span><span class="tag">&lt;/<span class="name">L5501</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 2.自定义标签绑定固定值 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">jumparading</span> <span class="attr">num</span>=<span class="string">&quot;二&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">jumparading</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 3.自定义标签绑定变量 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">hunter</span> <span class="attr">v-bind:three</span>=<span class="string">&quot;number&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">hunter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// 1.自定义标签</span></span></span><br><span class="line"><span class="language-javascript"><span class="title class_">Vue</span>.<span class="title function_">component</span>(<span class="string">&#x27;L5501&#x27;</span>,&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">template</span>: <span class="string">&#x27;&lt;h1&gt; 这是第一个组件 &lt;h1&gt;&#x27;</span></span></span><br><span class="line"><span class="language-javascript">&#125;)</span></span><br><span class="line"><span class="language-javascript"><span class="comment">// 2.自定义标签绑定固定值</span></span></span><br><span class="line"><span class="language-javascript"><span class="title class_">Vue</span>.<span class="title function_">component</span>(<span class="string">&#x27;jumparading&#x27;</span>,&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">props</span>: [<span class="string">&#x27;num&#x27;</span>],</span></span><br><span class="line"><span class="language-javascript"><span class="attr">template</span>: <span class="string">&#x27;&lt;h2&gt; 这是第&#123;&#123;num&#125;&#125;个组件 &lt;h2&gt;&#x27;</span></span></span><br><span class="line"><span class="language-javascript">&#125;)</span></span><br><span class="line"><span class="language-javascript"><span class="comment">// 3.自定义标签绑定变量</span></span></span><br><span class="line"><span class="language-javascript"><span class="title class_">Vue</span>.<span class="title function_">component</span>(<span class="string">&#x27;hunter&#x27;</span>,&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">props</span>: [<span class="string">&#x27;three&#x27;</span>],</span></span><br><span class="line"><span class="language-javascript"><span class="attr">template</span>: <span class="string">&#x27;&lt;h2&gt; 这是第&#123;&#123;three&#125;&#125;个组件 &lt;h2&gt;&#x27;</span></span></span><br><span class="line"><span class="language-javascript">&#125;)</span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> app = <span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">el</span>: <span class="string">&#x27;#app&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript"><span class="attr">data</span>:&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">number</span>:<span class="string">&#x27;三&#x27;</span></span></span><br><span class="line"><span class="language-javascript">&#125;,</span></span><br><span class="line"><span class="language-javascript">&#125;)</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
     
     
-    <summary type="html">用命令将windows激活</summary>
+    <summary type="html">vue自定义组件</summary>
     
     
     
-    <category term="杂类" scheme="https://www.mentaltest.run/categories/%E6%9D%82%E7%B1%BB/"/>
+    <category term="前端笔记" scheme="https://www.mentaltest.run/categories/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="电脑知识" scheme="https://www.mentaltest.run/tags/%E7%94%B5%E8%84%91%E7%9F%A5%E8%AF%86/"/>
+    <category term="vue笔记" scheme="https://www.mentaltest.run/tags/vue%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -332,23 +311,23 @@
   </entry>
   
   <entry>
-    <title>测试文章</title>
-    <link href="https://www.mentaltest.run/posts/7a6a6b5a.html"/>
-    <id>https://www.mentaltest.run/posts/7a6a6b5a.html</id>
-    <published>2025-02-26T12:33:59.353Z</published>
-    <updated>2025-02-26T12:33:59.353Z</updated>
+    <title>windows激活</title>
+    <link href="https://www.mentaltest.run/posts/91cf1372.html"/>
+    <id>https://www.mentaltest.run/posts/91cf1372.html</id>
+    <published>2025-02-26T12:33:59.354Z</published>
+    <updated>2025-02-26T12:33:59.354Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="这是一个测试文章">这是一个测试文章</h2><p>以下为文章格式测试</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HelloWorld</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello World&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>用管理员权限打开DOS命令窗口，输入以下的命令即可</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">slmgr /skms kms.v0v.bid &amp;&amp; slmgr /ato</span><br></pre></td></tr></table></figure><p>本人win10亲测有效，其他的版本暂时没试过</p>]]></content>
     
     
-    <summary type="html">这是一个测试文章</summary>
+    <summary type="html">用命令将windows激活</summary>
     
     
     
     <category term="杂类" scheme="https://www.mentaltest.run/categories/%E6%9D%82%E7%B1%BB/"/>
     
     
-    <category term="测试" scheme="https://www.mentaltest.run/tags/%E6%B5%8B%E8%AF%95/"/>
+    <category term="电脑知识" scheme="https://www.mentaltest.run/tags/%E7%94%B5%E8%84%91%E7%9F%A5%E8%AF%86/"/>
     
   </entry>
   
@@ -374,6 +353,27 @@
   </entry>
   
   <entry>
+    <title>测试文章</title>
+    <link href="https://www.mentaltest.run/posts/7a6a6b5a.html"/>
+    <id>https://www.mentaltest.run/posts/7a6a6b5a.html</id>
+    <published>2025-02-26T12:33:59.353Z</published>
+    <updated>2025-02-26T12:33:59.353Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="这是一个测试文章">这是一个测试文章</h2><p>以下为文章格式测试</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HelloWorld</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello World&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">这是一个测试文章</summary>
+    
+    
+    
+    <category term="杂类" scheme="https://www.mentaltest.run/categories/%E6%9D%82%E7%B1%BB/"/>
+    
+    
+    <category term="测试" scheme="https://www.mentaltest.run/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>numpy数据分析</title>
     <link href="https://www.mentaltest.run/posts/9d3872d5.html"/>
     <id>https://www.mentaltest.run/posts/9d3872d5.html</id>
@@ -395,27 +395,6 @@
   </entry>
   
   <entry>
-    <title>ssm构建笔记</title>
-    <link href="https://www.mentaltest.run/posts/739cd8bb.html"/>
-    <id>https://www.mentaltest.run/posts/739cd8bb.html</id>
-    <published>2025-02-26T12:33:59.353Z</published>
-    <updated>2025-02-26T12:33:59.353Z</updated>
-    
-    <content type="html"><![CDATA[<h1>ssm笔记</h1><h3 id="原始版构建方式">原始版构建方式</h3><ol><li><p>alt+insert添加依赖，引入spring-webmvc依赖</p></li><li><p>open moudle setting 配置web中的web Resource Directories路径和Deployment Descriptos路径</p></li><li><p>创建任意controller</p></li><li><p>于resources文件夹中创建applicationContext.xml和spring-servlet.xml</p></li><li><p>applicationContext.xml配置，先配置需要扫描的包</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="attr">xmlns:context</span>=<span class="string">&quot;http://www.springframework.org/schema/c&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- base-package 表示要扫描的包；use-default-filters表示使用默认的过滤器，true表示全扫--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">&quot;org.ll&quot;</span> <span class="attr">use-default-filters</span>=<span class="string">&quot;true&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--除去controller，其他的都扫--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">context:exclude-filter</span> <span class="attr">type</span>=<span class="string">&quot;annotation&quot;</span> <span class="attr">experssion</span>=<span class="string">&quot;org.springframework.stereotype.Controller&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--下面可配mybatis--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure></li><li><p>spring-servlet.xml的配置</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="attr">xmlns:context</span>=<span class="string">&quot;http://www.springframework.org/schema/c&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:mvc</span>=<span class="string">&quot;http://www.springframework.org/schema/mvc&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--不使用默认的过滤器，需要指定扫描的包--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">&quot;org.ll&quot;</span> <span class="attr">user-default-filters</span>=<span class="string">&quot;false&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--包括哪个，即指定哪个包--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">context:include-filter</span> <span class="attr">type</span>=<span class="string">&quot;annotation&quot;</span> <span class="attr">expression</span>=<span class="string">&quot;org.springframework.stereotype.Controller&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">mvc:annotation-driven</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--视图解析器等在下面配--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure></li><li><p>web.xml文件配置</p></li></ol><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">version</span>=<span class="string">&quot;4.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--加载spring的配置文件--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">context-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:applicationContext.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">listener</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">listener-class</span>&gt;</span>org.springframework.web.context.ContextLoaderListener<span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">listener</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--spring mvc的配置文件--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springmvc<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:spring-servlet.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springmvc<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-    <summary type="html">ssm构建笔记</summary>
-    
-    
-    
-    <category term="java笔记" scheme="https://www.mentaltest.run/categories/java%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="java基础" scheme="https://www.mentaltest.run/tags/java%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
     <title>uniapp 滚动分页模板</title>
     <link href="https://www.mentaltest.run/posts/7d9fb314.html"/>
     <id>https://www.mentaltest.run/posts/7d9fb314.html</id>
@@ -433,6 +412,27 @@
     
     
     <category term="uniapp" scheme="https://www.mentaltest.run/tags/uniapp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ssm构建笔记</title>
+    <link href="https://www.mentaltest.run/posts/739cd8bb.html"/>
+    <id>https://www.mentaltest.run/posts/739cd8bb.html</id>
+    <published>2025-02-26T12:33:59.353Z</published>
+    <updated>2025-02-26T12:33:59.353Z</updated>
+    
+    <content type="html"><![CDATA[<h1>ssm笔记</h1><h3 id="原始版构建方式">原始版构建方式</h3><ol><li><p>alt+insert添加依赖，引入spring-webmvc依赖</p></li><li><p>open moudle setting 配置web中的web Resource Directories路径和Deployment Descriptos路径</p></li><li><p>创建任意controller</p></li><li><p>于resources文件夹中创建applicationContext.xml和spring-servlet.xml</p></li><li><p>applicationContext.xml配置，先配置需要扫描的包</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="attr">xmlns:context</span>=<span class="string">&quot;http://www.springframework.org/schema/c&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- base-package 表示要扫描的包；use-default-filters表示使用默认的过滤器，true表示全扫--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">&quot;org.ll&quot;</span> <span class="attr">use-default-filters</span>=<span class="string">&quot;true&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--除去controller，其他的都扫--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">context:exclude-filter</span> <span class="attr">type</span>=<span class="string">&quot;annotation&quot;</span> <span class="attr">experssion</span>=<span class="string">&quot;org.springframework.stereotype.Controller&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--下面可配mybatis--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure></li><li><p>spring-servlet.xml的配置</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="attr">xmlns:context</span>=<span class="string">&quot;http://www.springframework.org/schema/c&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:mvc</span>=<span class="string">&quot;http://www.springframework.org/schema/mvc&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--不使用默认的过滤器，需要指定扫描的包--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">&quot;org.ll&quot;</span> <span class="attr">user-default-filters</span>=<span class="string">&quot;false&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--包括哪个，即指定哪个包--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">context:include-filter</span> <span class="attr">type</span>=<span class="string">&quot;annotation&quot;</span> <span class="attr">expression</span>=<span class="string">&quot;org.springframework.stereotype.Controller&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">mvc:annotation-driven</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--视图解析器等在下面配--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure></li><li><p>web.xml文件配置</p></li></ol><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">version</span>=<span class="string">&quot;4.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--加载spring的配置文件--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">context-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:applicationContext.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">listener</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">listener-class</span>&gt;</span>org.springframework.web.context.ContextLoaderListener<span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">listener</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--spring mvc的配置文件--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springmvc<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:spring-servlet.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springmvc<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">ssm构建笔记</summary>
+    
+    
+    
+    <category term="java笔记" scheme="https://www.mentaltest.run/categories/java%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="java基础" scheme="https://www.mentaltest.run/tags/java%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   

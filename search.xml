@@ -29,11 +29,11 @@
     
     
     <entry>
-      <title>更新日志</title>
-      <link href="/posts/5a717bf0.html"/>
-      <url>/posts/5a717bf0.html</url>
+      <title>菜谱</title>
+      <link href="/posts/70a7eda9.html"/>
+      <url>/posts/70a7eda9.html</url>
       
-        <content type="html"><![CDATA[<h3 id="2022-12-1更新内容">2022-12-1更新内容</h3><p>1.修改博客音乐播放器，原网易云，现QQ音乐<br>2.因为收到大量广告评论，现关闭评论功能<br>3.更改网页图标<br>4.更改图片显示方式，增快读取速度。（但是因为使用vercel部署的原因，国内访问还是较慢，但是能接受，以后再想办法）</p><h3 id="2022-12-1更新内容-2">2022-12-1更新内容</h3><p>1.修改标签和分类<br>2.修补部分显示错误</p><h3 id="2023-1-12更新内容">2023-1-12更新内容</h3><p>1.下线音乐播放器</p><h3 id="2023-1-12更新内容-2">2023-1-12更新内容</h3><p>1.重新上线音乐播放器<br>2.首页底部增加音乐播放器<br>3.新增挂件<br>4.暂时下线github贡献图<br>5.修改dns，加速访问速度<br>6.白天模式和夜间模式切换时壁纸改变</p><h3 id="2023-4-24更新内容">2023-4-24更新内容</h3><p>1.部分网页增加访问密码</p><h3 id="2023-4-25更新内容">2023-4-25更新内容</h3><p>1.新增评论功能</p><h3 id="2023-5-16更新内容">2023-5-16更新内容</h3><p>1.新增两个分类，目前分类比较复杂，后期还会做调整<br>2.新增gitee联系方式</p><h3 id="2023-8-16更新内容">2023-8-16更新内容</h3><p>1.页面重构，将持续不定期的修改页面<br>2.修改付款码<br>3.最近项目太忙，有空再进行其他修改，心累，下次一定找个双休的</p><h3 id="2023-11-10更新内容">2023-11-10更新内容</h3><p>1.修改分类指向页面<br>2.修改个人信息页面，取消邮箱，更换卡片背景图片<br>3.更改加载时的头像<br>4.其他还有些小改动，此处不赘叙，周末再改动一下</p>]]></content>
+        <content type="html"><![CDATA[<h3 id="擂辣椒茄子皮蛋">擂辣椒茄子皮蛋</h3><p>测试一下</p><p>主料：茄子(1个)，皮蛋（2个)，辣椒（看个人，一般两个）</p><p>辅料：蒜，芝麻油</p><p>酱料：老抽（2勺），陈醋（2勺），蚝油（1勺），少量盐</p><p>步骤：</p><ol><li>茄子洗净去皮切成小粗条，放锅上去蒸</li><li>皮蛋剥壳切块</li><li>茄子蒸软后放入碗中</li><li>大蒜切粒</li><li>辣椒洗干净放入锅中加油煎软，撕去表皮</li><li>放放酱料一起捣烂</li></ol>]]></content>
       
       
       <categories>
@@ -45,7 +45,7 @@
       
         <tags>
             
-            <tag> 日志 </tag>
+            <tag> 菜谱 </tag>
             
         </tags>
       
@@ -54,11 +54,11 @@
     
     
     <entry>
-      <title>欢迎来到我的博客</title>
-      <link href="/posts/b250e9bb.html"/>
-      <url>/posts/b250e9bb.html</url>
+      <title>更新日志</title>
+      <link href="/posts/5a717bf0.html"/>
+      <url>/posts/5a717bf0.html</url>
       
-        <content type="html"><![CDATA[<!-- # 本地图片 --><!-- <img src="/assets/pusheencode.webp" alt="示例图片" style="zoom:50%;" /> --><h1>一起变强吧🚅</h1><p><img src="https://w.wallhaven.cc/full/ex/wallhaven-exyp3k.jpg" alt="code"></p><h1>后续计划✈️</h1><h3 id="十二月计划">十二月计划</h3><p>这几个月过的过于混沌，又是工作，又是前途，搞得有些焦头烂额，所以先做点计划吧：</p><ol><li>图集功能：因为我今年买了相机，所以我想博客增加图集功能，用来存储我拍的照片</li><li>读书展示：今年还买了iReader，看了一些书，但是iReader不知道是我用的不太熟还是没有这个功能，所以我想做到博客里面</li><li>写十篇文章：之前太忙了，正好手头有一些东西可以写成文章</li><li>项目日志模块：以后每个项目都要增加一个日志，记录自己在做的日志</li><li>python模块：一直都想学python，一直都在🕊️</li><li>练习SQL：时间太久没怎么练习了，都忘光了😅</li></ol>]]></content>
+        <content type="html"><![CDATA[<h3 id="2022-12-1更新内容">2022-12-1更新内容</h3><p>1.修改博客音乐播放器，原网易云，现QQ音乐<br>2.因为收到大量广告评论，现关闭评论功能<br>3.更改网页图标<br>4.更改图片显示方式，增快读取速度。（但是因为使用vercel部署的原因，国内访问还是较慢，但是能接受，以后再想办法）</p><h3 id="2022-12-1更新内容-2">2022-12-1更新内容</h3><p>1.修改标签和分类<br>2.修补部分显示错误</p><h3 id="2023-1-12更新内容">2023-1-12更新内容</h3><p>1.下线音乐播放器</p><h3 id="2023-1-12更新内容-2">2023-1-12更新内容</h3><p>1.重新上线音乐播放器<br>2.首页底部增加音乐播放器<br>3.新增挂件<br>4.暂时下线github贡献图<br>5.修改dns，加速访问速度<br>6.白天模式和夜间模式切换时壁纸改变</p><h3 id="2023-4-24更新内容">2023-4-24更新内容</h3><p>1.部分网页增加访问密码</p><h3 id="2023-4-25更新内容">2023-4-25更新内容</h3><p>1.新增评论功能</p><h3 id="2023-5-16更新内容">2023-5-16更新内容</h3><p>1.新增两个分类，目前分类比较复杂，后期还会做调整<br>2.新增gitee联系方式</p><h3 id="2023-8-16更新内容">2023-8-16更新内容</h3><p>1.页面重构，将持续不定期的修改页面<br>2.修改付款码<br>3.最近项目太忙，有空再进行其他修改，心累，下次一定找个双休的</p><h3 id="2023-11-10更新内容">2023-11-10更新内容</h3><p>1.修改分类指向页面<br>2.修改个人信息页面，取消邮箱，更换卡片背景图片<br>3.更改加载时的头像<br>4.其他还有些小改动，此处不赘叙，周末再改动一下</p>]]></content>
       
       
       <categories>
@@ -104,11 +104,11 @@
     
     
     <entry>
-      <title>菜谱</title>
-      <link href="/posts/70a7eda9.html"/>
-      <url>/posts/70a7eda9.html</url>
+      <title>欢迎来到我的博客</title>
+      <link href="/posts/b250e9bb.html"/>
+      <url>/posts/b250e9bb.html</url>
       
-        <content type="html"><![CDATA[<h3 id="擂辣椒茄子皮蛋">擂辣椒茄子皮蛋</h3><p>测试一下</p><p>主料：茄子(1个)，皮蛋（2个)，辣椒（看个人，一般两个）</p><p>辅料：蒜，芝麻油</p><p>酱料：老抽（2勺），陈醋（2勺），蚝油（1勺），少量盐</p><p>步骤：</p><ol><li>茄子洗净去皮切成小粗条，放锅上去蒸</li><li>皮蛋剥壳切块</li><li>茄子蒸软后放入碗中</li><li>大蒜切粒</li><li>辣椒洗干净放入锅中加油煎软，撕去表皮</li><li>放放酱料一起捣烂</li></ol>]]></content>
+        <content type="html"><![CDATA[<!-- # 本地图片 --><!-- <img src="/assets/pusheencode.webp" alt="示例图片" style="zoom:50%;" /> --><h1>一起变强吧🚅</h1><p><img src="https://w.wallhaven.cc/full/ex/wallhaven-exyp3k.jpg" alt="code"></p><h1>后续计划✈️</h1><h3 id="十二月计划">十二月计划</h3><p>这几个月过的过于混沌，又是工作，又是前途，搞得有些焦头烂额，所以先做点计划吧：</p><ol><li>图集功能：因为我今年买了相机，所以我想博客增加图集功能，用来存储我拍的照片</li><li>读书展示：今年还买了iReader，看了一些书，但是iReader不知道是我用的不太熟还是没有这个功能，所以我想做到博客里面</li><li>写十篇文章：之前太忙了，正好手头有一些东西可以写成文章</li><li>项目日志模块：以后每个项目都要增加一个日志，记录自己在做的日志</li><li>python模块：一直都想学python，一直都在🕊️</li><li>练习SQL：时间太久没怎么练习了，都忘光了😅</li></ol>]]></content>
       
       
       <categories>
@@ -120,7 +120,7 @@
       
         <tags>
             
-            <tag> 菜谱 </tag>
+            <tag> 日志 </tag>
             
         </tags>
       
@@ -146,6 +146,31 @@
         <tags>
             
             <tag> oss上传 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>微信小程序笔记（一）</title>
+      <link href="/posts/a920c857.html"/>
+      <url>/posts/a920c857.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="一、项目结构">一、项目结构</h3><ol><li><strong>pages</strong>：用来存放所有小程序页面</li><li><strong>utils</strong>：用来存放工具性质的模块（例如：格式化时间的自定义模块）</li><li><strong>app.js</strong>：小程序项目的入口文件</li><li><strong>app.json</strong>：小程序项目的全局配置文件</li><li><strong>app.wxss</strong>：小程序项目的全局样式文件</li><li><strong>project.config.json</strong>：项目的配置文件</li><li><strong>sitemap.json</strong>：用来配置小程序及其页面是否允许被微信索引</li></ol><h3 id="二、小程序的页面组成部分">二、小程序的页面组成部分</h3><p>官方建议把所有小程序页面，都放在pages目录中，以单独文件夹存在，每个页面由4个基本文件组成：</p><ol><li><strong>.js</strong>文件（页面的脚本文件，存放页面的数据、事件处理函数等）</li><li><strong>.json</strong>文件（当前页面的配置文件，配置窗口的外观、表现等）</li><li><strong>.wxml</strong>文件（页面的模板结构文件）</li><li><strong>.wxss</strong>文件（当前页面的样式表文件）</li></ol><h3 id="三、小程序代码的构成-JSON配置文件">三、小程序代码的构成 - JSON配置文件</h3><p>JSON配置文件的作用：通过不同的**.json**配置文件，可以对小程序项目进行不同级别的配置</p><p>小程序中有4种JSON配置文件，分别为：</p><ol><li>项目根目录中的 <strong>app.json</strong> 配置文件：当前小程序的全局配置，包括了小程序的所有页面路径、窗口外观、界面表现、底部tab等,有以下几个主要配置项：<ol><li>pages: 用来记录当前小程序所有页面的路径</li><li>window：全局定义小程序所有页面的背景色、文字颜色等</li><li>style：全结定义小程序组件所使用的样式版本（默认v2）</li><li>sitemapLocation：用来指明 sitemap.json 的位置</li></ol></li><li>项目根目录中的 <strong>project.config.json</strong> 配置文件：项目配置文件，用来记录我们对小程序开发工具所做的个性化配置，例如：<ol><li>setting 中保存了编译相关的配置</li><li>projectname 中保存项目名称（可随意填写，不等于小程序名字）</li><li>appID 中保存小程序账号的ID（如果是在自己账号上运行别人的项目，记得把APPID改成自己的，否则容易报错）</li></ol></li><li>项目根目录中的 <strong>sitemap.json</strong> 配置文件：配置小程序页面是否允许微信索引。如果允许微信索引，微信会通过爬虫为小程序页面内容建立索引。当用户搜索关键词和页面的索引匹配成功时，小程序的页面将可能展示在搜索结果中。（<em>注：sitemap 的索引提示是默认开启的，如果需要关闭索引提示，可在peoject.config.json 的 setting 中配置字段 <strong>checkSiteMap</strong> 为 false</em>）</li><li>每个页面文件夹中的 <strong>.json</strong> 文件：</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 微信小程序笔记 </tag>
             
         </tags>
       
@@ -204,31 +229,6 @@
     
     
     <entry>
-      <title>微信小程序笔记（一）</title>
-      <link href="/posts/a920c857.html"/>
-      <url>/posts/a920c857.html</url>
-      
-        <content type="html"><![CDATA[<h3 id="一、项目结构">一、项目结构</h3><ol><li><strong>pages</strong>：用来存放所有小程序页面</li><li><strong>utils</strong>：用来存放工具性质的模块（例如：格式化时间的自定义模块）</li><li><strong>app.js</strong>：小程序项目的入口文件</li><li><strong>app.json</strong>：小程序项目的全局配置文件</li><li><strong>app.wxss</strong>：小程序项目的全局样式文件</li><li><strong>project.config.json</strong>：项目的配置文件</li><li><strong>sitemap.json</strong>：用来配置小程序及其页面是否允许被微信索引</li></ol><h3 id="二、小程序的页面组成部分">二、小程序的页面组成部分</h3><p>官方建议把所有小程序页面，都放在pages目录中，以单独文件夹存在，每个页面由4个基本文件组成：</p><ol><li><strong>.js</strong>文件（页面的脚本文件，存放页面的数据、事件处理函数等）</li><li><strong>.json</strong>文件（当前页面的配置文件，配置窗口的外观、表现等）</li><li><strong>.wxml</strong>文件（页面的模板结构文件）</li><li><strong>.wxss</strong>文件（当前页面的样式表文件）</li></ol><h3 id="三、小程序代码的构成-JSON配置文件">三、小程序代码的构成 - JSON配置文件</h3><p>JSON配置文件的作用：通过不同的**.json**配置文件，可以对小程序项目进行不同级别的配置</p><p>小程序中有4种JSON配置文件，分别为：</p><ol><li>项目根目录中的 <strong>app.json</strong> 配置文件：当前小程序的全局配置，包括了小程序的所有页面路径、窗口外观、界面表现、底部tab等,有以下几个主要配置项：<ol><li>pages: 用来记录当前小程序所有页面的路径</li><li>window：全局定义小程序所有页面的背景色、文字颜色等</li><li>style：全结定义小程序组件所使用的样式版本（默认v2）</li><li>sitemapLocation：用来指明 sitemap.json 的位置</li></ol></li><li>项目根目录中的 <strong>project.config.json</strong> 配置文件：项目配置文件，用来记录我们对小程序开发工具所做的个性化配置，例如：<ol><li>setting 中保存了编译相关的配置</li><li>projectname 中保存项目名称（可随意填写，不等于小程序名字）</li><li>appID 中保存小程序账号的ID（如果是在自己账号上运行别人的项目，记得把APPID改成自己的，否则容易报错）</li></ol></li><li>项目根目录中的 <strong>sitemap.json</strong> 配置文件：配置小程序页面是否允许微信索引。如果允许微信索引，微信会通过爬虫为小程序页面内容建立索引。当用户搜索关键词和页面的索引匹配成功时，小程序的页面将可能展示在搜索结果中。（<em>注：sitemap 的索引提示是默认开启的，如果需要关闭索引提示，可在peoject.config.json 的 setting 中配置字段 <strong>checkSiteMap</strong> 为 false</em>）</li><li>每个页面文件夹中的 <strong>.json</strong> 文件：</li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端笔记 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 微信小程序笔记 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>微服务面试题</title>
       <link href="/posts/d2849c17.html"/>
       <url>/posts/d2849c17.html</url>
@@ -271,6 +271,31 @@
         <tags>
             
             <tag> uniapp </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>windows激活</title>
+      <link href="/posts/91cf1372.html"/>
+      <url>/posts/91cf1372.html</url>
+      
+        <content type="html"><![CDATA[<p>用管理员权限打开DOS命令窗口，输入以下的命令即可</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">slmgr /skms kms.v0v.bid &amp;&amp; slmgr /ato</span><br></pre></td></tr></table></figure><p>本人win10亲测有效，其他的版本暂时没试过</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 杂类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 电脑知识 </tag>
             
         </tags>
       
@@ -329,31 +354,6 @@
     
     
     <entry>
-      <title>windows激活</title>
-      <link href="/posts/91cf1372.html"/>
-      <url>/posts/91cf1372.html</url>
-      
-        <content type="html"><![CDATA[<p>用管理员权限打开DOS命令窗口，输入以下的命令即可</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">slmgr /skms kms.v0v.bid &amp;&amp; slmgr /ato</span><br></pre></td></tr></table></figure><p>本人win10亲测有效，其他的版本暂时没试过</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 杂类 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 电脑知识 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>简单的python爬虫</title>
       <link href="/posts/2e8932a3.html"/>
       <url>/posts/2e8932a3.html</url>
@@ -404,6 +404,31 @@
     
     
     <entry>
+      <title>ssm构建笔记</title>
+      <link href="/posts/739cd8bb.html"/>
+      <url>/posts/739cd8bb.html</url>
+      
+        <content type="html"><![CDATA[<h1>ssm笔记</h1><h3 id="原始版构建方式">原始版构建方式</h3><ol><li><p>alt+insert添加依赖，引入spring-webmvc依赖</p></li><li><p>open moudle setting 配置web中的web Resource Directories路径和Deployment Descriptos路径</p></li><li><p>创建任意controller</p></li><li><p>于resources文件夹中创建applicationContext.xml和spring-servlet.xml</p></li><li><p>applicationContext.xml配置，先配置需要扫描的包</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="attr">xmlns:context</span>=<span class="string">&quot;http://www.springframework.org/schema/c&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- base-package 表示要扫描的包；use-default-filters表示使用默认的过滤器，true表示全扫--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">&quot;org.ll&quot;</span> <span class="attr">use-default-filters</span>=<span class="string">&quot;true&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--除去controller，其他的都扫--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">context:exclude-filter</span> <span class="attr">type</span>=<span class="string">&quot;annotation&quot;</span> <span class="attr">experssion</span>=<span class="string">&quot;org.springframework.stereotype.Controller&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--下面可配mybatis--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure></li><li><p>spring-servlet.xml的配置</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="attr">xmlns:context</span>=<span class="string">&quot;http://www.springframework.org/schema/c&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:mvc</span>=<span class="string">&quot;http://www.springframework.org/schema/mvc&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--不使用默认的过滤器，需要指定扫描的包--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">&quot;org.ll&quot;</span> <span class="attr">user-default-filters</span>=<span class="string">&quot;false&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--包括哪个，即指定哪个包--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">context:include-filter</span> <span class="attr">type</span>=<span class="string">&quot;annotation&quot;</span> <span class="attr">expression</span>=<span class="string">&quot;org.springframework.stereotype.Controller&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">mvc:annotation-driven</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--视图解析器等在下面配--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure></li><li><p>web.xml文件配置</p></li></ol><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">version</span>=<span class="string">&quot;4.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--加载spring的配置文件--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">context-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:applicationContext.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">listener</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">listener-class</span>&gt;</span>org.springframework.web.context.ContextLoaderListener<span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">listener</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--spring mvc的配置文件--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springmvc<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:spring-servlet.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springmvc<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> java笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java基础 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>测试文章</title>
       <link href="/posts/7a6a6b5a.html"/>
       <url>/posts/7a6a6b5a.html</url>
@@ -446,31 +471,6 @@
         <tags>
             
             <tag> 数据分析 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>ssm构建笔记</title>
-      <link href="/posts/739cd8bb.html"/>
-      <url>/posts/739cd8bb.html</url>
-      
-        <content type="html"><![CDATA[<h1>ssm笔记</h1><h3 id="原始版构建方式">原始版构建方式</h3><ol><li><p>alt+insert添加依赖，引入spring-webmvc依赖</p></li><li><p>open moudle setting 配置web中的web Resource Directories路径和Deployment Descriptos路径</p></li><li><p>创建任意controller</p></li><li><p>于resources文件夹中创建applicationContext.xml和spring-servlet.xml</p></li><li><p>applicationContext.xml配置，先配置需要扫描的包</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="attr">xmlns:context</span>=<span class="string">&quot;http://www.springframework.org/schema/c&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- base-package 表示要扫描的包；use-default-filters表示使用默认的过滤器，true表示全扫--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">&quot;org.ll&quot;</span> <span class="attr">use-default-filters</span>=<span class="string">&quot;true&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--除去controller，其他的都扫--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">context:exclude-filter</span> <span class="attr">type</span>=<span class="string">&quot;annotation&quot;</span> <span class="attr">experssion</span>=<span class="string">&quot;org.springframework.stereotype.Controller&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--下面可配mybatis--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure></li><li><p>spring-servlet.xml的配置</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="attr">xmlns:context</span>=<span class="string">&quot;http://www.springframework.org/schema/c&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:mvc</span>=<span class="string">&quot;http://www.springframework.org/schema/mvc&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--不使用默认的过滤器，需要指定扫描的包--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">&quot;org.ll&quot;</span> <span class="attr">user-default-filters</span>=<span class="string">&quot;false&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--包括哪个，即指定哪个包--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">context:include-filter</span> <span class="attr">type</span>=<span class="string">&quot;annotation&quot;</span> <span class="attr">expression</span>=<span class="string">&quot;org.springframework.stereotype.Controller&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">mvc:annotation-driven</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--视图解析器等在下面配--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure></li><li><p>web.xml文件配置</p></li></ol><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">version</span>=<span class="string">&quot;4.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--加载spring的配置文件--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">context-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:applicationContext.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">listener</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">listener-class</span>&gt;</span>org.springframework.web.context.ContextLoaderListener<span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">listener</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--spring mvc的配置文件--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springmvc<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:spring-servlet.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springmvc<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> java笔记 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> java基础 </tag>
             
         </tags>
       

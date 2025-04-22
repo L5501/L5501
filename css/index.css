@@ -1393,7 +1393,7 @@ input::placeholder {
   z-index: -999;
   width: 100%;
   height: 100%;
-  background: url(http://47.115.201.224:9000/test/xml.jpg);
+  background: url(https://haowallpaper.com/link/common/file/previewFileImg/16451820466457984);
   background-attachment: local;
   background-position: center;
   background-size: cover;
@@ -5222,7 +5222,7 @@ mjx-container[display],
   border-radius: 5px !important;
 }
 [data-theme="dark"] #web_bg {
-  background: url(http://47.115.201.224:9000/test/wallhaven-x8w1yd.jpg);
+  background: url(https://haowallpaper.com/link/common/file/previewFileImg/15737914612289856);
   background-attachment: local;
   background-position: center;
   background-size: cover;
@@ -5230,14 +5230,14 @@ mjx-container[display],
 }
 @media screen and (max-width: 800px) {
   #web_bg {
-    background: url(https://leebook.oss-cn-hangzhou.aliyuncs.com/blog/cover/tom.jpg);
+    background: url(https://haowallpaper.com/link/common/file/getCroppingImg/2c6d4e66edefdacb1cdeb271afdb0113);
     background-attachment: local !important;
     background-position: center !important;
     background-size: cover !important;
     background-repeat: no-repeat !important;
   }
   [data-theme="dark"] #web_bg {
-    background: url(https://leebook.oss-cn-hangzhou.aliyuncs.com/blog/cover/lm.jpg);
+    background: url(https://haowallpaper.com/link/common/file/getCroppingImg/23e97527ceeabd3cd6b37a66b07aa969);
     background-attachment: local !important;
     background-position: center !important;
     background-size: cover !important;

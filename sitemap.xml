@@ -65,15 +65,6 @@
   </url>
   
   <url>
-    <loc>https://www.mentaltest.run/site/census/index.html</loc>
-    
-    <lastmod>2025-02-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.mentaltest.run/site/time/index.html</loc>
     
     <lastmod>2025-02-26</lastmod>
@@ -92,25 +83,7 @@
   </url>
   
   <url>
-    <loc>https://www.mentaltest.run/personal/bb/index.html</loc>
-    
-    <lastmod>2025-02-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mentaltest.run/personal/love/index.html</loc>
-    
-    <lastmod>2025-02-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mentaltest.run/personal/about/index.html</loc>
+    <loc>https://www.mentaltest.run/site/census/index.html</loc>
     
     <lastmod>2025-02-26</lastmod>
     
@@ -128,7 +101,25 @@
   </url>
   
   <url>
-    <loc>https://www.mentaltest.run/life/movies/index.html</loc>
+    <loc>https://www.mentaltest.run/personal/love/index.html</loc>
+    
+    <lastmod>2025-02-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mentaltest.run/personal/bb/index.html</loc>
+    
+    <lastmod>2025-02-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mentaltest.run/personal/about/index.html</loc>
     
     <lastmod>2025-02-26</lastmod>
     
@@ -138,6 +129,15 @@
   
   <url>
     <loc>https://www.mentaltest.run/life/games/index.html</loc>
+    
+    <lastmod>2025-02-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mentaltest.run/life/movies/index.html</loc>
     
     <lastmod>2025-02-26</lastmod>
     
@@ -182,15 +182,6 @@
   </url>
   
   <url>
-    <loc>https://www.mentaltest.run/posts/5a717bf0.html</loc>
-    
-    <lastmod>2025-02-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.mentaltest.run/posts/b250e9bb.html</loc>
     
     <lastmod>2025-02-26</lastmod>
@@ -200,16 +191,7 @@
   </url>
   
   <url>
-    <loc>https://www.mentaltest.run/posts/a920c857.html</loc>
-    
-    <lastmod>2025-02-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mentaltest.run/posts/2e8932a3.html</loc>
+    <loc>https://www.mentaltest.run/posts/5a717bf0.html</loc>
     
     <lastmod>2025-02-26</lastmod>
     
@@ -227,7 +209,25 @@
   </url>
   
   <url>
+    <loc>https://www.mentaltest.run/posts/2e8932a3.html</loc>
+    
+    <lastmod>2025-02-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.mentaltest.run/posts/6605dc2.html</loc>
+    
+    <lastmod>2025-02-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mentaltest.run/posts/a920c857.html</loc>
     
     <lastmod>2025-02-26</lastmod>
     
@@ -263,7 +263,7 @@
   </url>
   
   <url>
-    <loc>https://www.mentaltest.run/posts/ec24c4ee.html</loc>
+    <loc>https://www.mentaltest.run/posts/91cf1372.html</loc>
     
     <lastmod>2025-02-26</lastmod>
     
@@ -272,7 +272,7 @@
   </url>
   
   <url>
-    <loc>https://www.mentaltest.run/posts/91cf1372.html</loc>
+    <loc>https://www.mentaltest.run/posts/ec24c4ee.html</loc>
     
     <lastmod>2025-02-26</lastmod>
     
@@ -299,25 +299,16 @@
   </url>
   
   <url>
-    <loc>https://www.mentaltest.run/posts/7a6a6b5a.html</loc>
-    
-    <lastmod>2025-02-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mentaltest.run/posts/739cd8bb.html</loc>
-    
-    <lastmod>2025-02-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.mentaltest.run/posts/9d3872d5.html</loc>
+    
+    <lastmod>2025-02-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mentaltest.run/posts/7a6a6b5a.html</loc>
     
     <lastmod>2025-02-26</lastmod>
     
@@ -335,16 +326,7 @@
   </url>
   
   <url>
-    <loc>https://www.mentaltest.run/posts/37d6ff2e.html</loc>
-    
-    <lastmod>2025-02-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mentaltest.run/posts/ef1d4915.html</loc>
+    <loc>https://www.mentaltest.run/posts/739cd8bb.html</loc>
     
     <lastmod>2025-02-26</lastmod>
     
@@ -363,6 +345,24 @@
   
   <url>
     <loc>https://www.mentaltest.run/posts/bfafad47.html</loc>
+    
+    <lastmod>2025-02-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mentaltest.run/posts/37d6ff2e.html</loc>
+    
+    <lastmod>2025-02-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mentaltest.run/posts/ef1d4915.html</loc>
     
     <lastmod>2025-02-26</lastmod>
     
@@ -398,28 +398,21 @@
 
   
   <url>
-    <loc>https://www.mentaltest.run/tags/spring%E7%9B%B8%E5%85%B3/</loc>
-    <lastmod>2025-04-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mentaltest.run/tags/%E5%A5%87%E6%80%AA%E7%9A%84%E9%9C%80%E6%B1%82/</loc>
-    <lastmod>2025-04-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mentaltest.run/tags/linux/</loc>
-    <lastmod>2025-04-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.mentaltest.run/tags/%E8%AF%BB%E4%B9%A6/</loc>
+    <lastmod>2025-04-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mentaltest.run/tags/ancodna/</loc>
+    <lastmod>2025-04-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mentaltest.run/tags/spring%E7%9B%B8%E5%85%B3/</loc>
     <lastmod>2025-04-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -440,7 +433,14 @@
   </url>
   
   <url>
-    <loc>https://www.mentaltest.run/tags/ancodna/</loc>
+    <loc>https://www.mentaltest.run/tags/%E5%A5%87%E6%80%AA%E7%9A%84%E9%9C%80%E6%B1%82/</loc>
+    <lastmod>2025-04-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mentaltest.run/tags/linux/</loc>
     <lastmod>2025-04-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -454,28 +454,14 @@
   </url>
   
   <url>
-    <loc>https://www.mentaltest.run/tags/%E6%B5%8B%E8%AF%95/</loc>
-    <lastmod>2025-04-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mentaltest.run/tags/msyql/</loc>
-    <lastmod>2025-04-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mentaltest.run/tags/java%E5%9F%BA%E7%A1%80/</loc>
-    <lastmod>2025-04-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.mentaltest.run/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</loc>
+    <lastmod>2025-04-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mentaltest.run/tags/%E6%B5%8B%E8%AF%95/</loc>
     <lastmod>2025-04-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -489,14 +475,21 @@
   </url>
   
   <url>
-    <loc>https://www.mentaltest.run/tags/vue%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://www.mentaltest.run/tags/java%E5%9F%BA%E7%A1%80/</loc>
     <lastmod>2025-04-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.mentaltest.run/tags/%E8%BD%AC%E8%BD%BD%E6%96%87%E7%AB%A0/</loc>
+    <loc>https://www.mentaltest.run/tags/msyql/</loc>
+    <lastmod>2025-04-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mentaltest.run/tags/vue%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2025-04-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -510,21 +503,7 @@
   </url>
   
   <url>
-    <loc>https://www.mentaltest.run/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2025-04-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mentaltest.run/tags/%E7%88%AC%E8%99%AB/</loc>
-    <lastmod>2025-04-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mentaltest.run/tags/%E6%97%A5%E5%BF%97/</loc>
+    <loc>https://www.mentaltest.run/tags/%E8%BD%AC%E8%BD%BD%E6%96%87%E7%AB%A0/</loc>
     <lastmod>2025-04-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -538,7 +517,28 @@
   </url>
   
   <url>
+    <loc>https://www.mentaltest.run/tags/%E7%88%AC%E8%99%AB/</loc>
+    <lastmod>2025-04-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.mentaltest.run/tags/sql%E6%8A%80%E6%9C%AF/</loc>
+    <lastmod>2025-04-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mentaltest.run/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2025-04-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mentaltest.run/tags/%E6%97%A5%E5%BF%97/</loc>
     <lastmod>2025-04-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -552,34 +552,20 @@
   </url>
   
   <url>
-    <loc>https://www.mentaltest.run/tags/java%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
-    <lastmod>2025-04-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.mentaltest.run/tags/oss%E4%B8%8A%E4%BC%A0/</loc>
     <lastmod>2025-04-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://www.mentaltest.run/tags/java%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
+    <lastmod>2025-04-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
-  
-  <url>
-    <loc>https://www.mentaltest.run/categories/java%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2025-04-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mentaltest.run/categories/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2025-04-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
   
   <url>
     <loc>https://www.mentaltest.run/categories/%E6%9D%82%E7%B1%BB/</loc>
@@ -590,6 +576,20 @@
   
   <url>
     <loc>https://www.mentaltest.run/categories/python%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2025-04-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mentaltest.run/categories/java%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2025-04-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mentaltest.run/categories/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2025-04-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

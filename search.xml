@@ -54,6 +54,31 @@
     
     
     <entry>
+      <title>欢迎来到我的博客</title>
+      <link href="/posts/b250e9bb.html"/>
+      <url>/posts/b250e9bb.html</url>
+      
+        <content type="html"><![CDATA[<!-- # 本地图片 --><!-- <img src="/assets/pusheencode.webp" alt="示例图片" style="zoom:50%;" /> --><h1>一起变强吧🚅</h1><p><img src="https://w.wallhaven.cc/full/ex/wallhaven-exyp3k.jpg" alt="code"></p><h1>后续计划✈️</h1><h3 id="十二月计划">十二月计划</h3><p>这几个月过的过于混沌，又是工作，又是前途，搞得有些焦头烂额，所以先做点计划吧：</p><ol><li>图集功能：因为我今年买了相机，所以我想博客增加图集功能，用来存储我拍的照片</li><li>读书展示：今年还买了iReader，看了一些书，但是iReader不知道是我用的不太熟还是没有这个功能，所以我想做到博客里面</li><li>写十篇文章：之前太忙了，正好手头有一些东西可以写成文章</li><li>项目日志模块：以后每个项目都要增加一个日志，记录自己在做的日志</li><li>python模块：一直都想学python，一直都在🕊️</li><li>练习SQL：时间太久没怎么练习了，都忘光了😅</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 杂类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 日志 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>更新日志</title>
       <link href="/posts/5a717bf0.html"/>
       <url>/posts/5a717bf0.html</url>
@@ -129,31 +154,6 @@
     
     
     <entry>
-      <title>欢迎来到我的博客</title>
-      <link href="/posts/b250e9bb.html"/>
-      <url>/posts/b250e9bb.html</url>
-      
-        <content type="html"><![CDATA[<!-- # 本地图片 --><!-- <img src="/assets/pusheencode.webp" alt="示例图片" style="zoom:50%;" /> --><h1>一起变强吧🚅</h1><p><img src="https://w.wallhaven.cc/full/ex/wallhaven-exyp3k.jpg" alt="code"></p><h1>后续计划✈️</h1><h3 id="十二月计划">十二月计划</h3><p>这几个月过的过于混沌，又是工作，又是前途，搞得有些焦头烂额，所以先做点计划吧：</p><ol><li>图集功能：因为我今年买了相机，所以我想博客增加图集功能，用来存储我拍的照片</li><li>读书展示：今年还买了iReader，看了一些书，但是iReader不知道是我用的不太熟还是没有这个功能，所以我想做到博客里面</li><li>写十篇文章：之前太忙了，正好手头有一些东西可以写成文章</li><li>项目日志模块：以后每个项目都要增加一个日志，记录自己在做的日志</li><li>python模块：一直都想学python，一直都在🕊️</li><li>练习SQL：时间太久没怎么练习了，都忘光了😅</li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> 杂类 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 日志 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>阿里云oss文件上传</title>
       <link href="/posts/8450d894.html"/>
       <url>/posts/8450d894.html</url>
@@ -171,31 +171,6 @@
         <tags>
             
             <tag> oss上传 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>微信小程序笔记（一）</title>
-      <link href="/posts/a920c857.html"/>
-      <url>/posts/a920c857.html</url>
-      
-        <content type="html"><![CDATA[<h3 id="一、项目结构">一、项目结构</h3><ol><li><strong>pages</strong>：用来存放所有小程序页面</li><li><strong>utils</strong>：用来存放工具性质的模块（例如：格式化时间的自定义模块）</li><li><strong>app.js</strong>：小程序项目的入口文件</li><li><strong>app.json</strong>：小程序项目的全局配置文件</li><li><strong>app.wxss</strong>：小程序项目的全局样式文件</li><li><strong>project.config.json</strong>：项目的配置文件</li><li><strong>sitemap.json</strong>：用来配置小程序及其页面是否允许被微信索引</li></ol><h3 id="二、小程序的页面组成部分">二、小程序的页面组成部分</h3><p>官方建议把所有小程序页面，都放在pages目录中，以单独文件夹存在，每个页面由4个基本文件组成：</p><ol><li><strong>.js</strong>文件（页面的脚本文件，存放页面的数据、事件处理函数等）</li><li><strong>.json</strong>文件（当前页面的配置文件，配置窗口的外观、表现等）</li><li><strong>.wxml</strong>文件（页面的模板结构文件）</li><li><strong>.wxss</strong>文件（当前页面的样式表文件）</li></ol><h3 id="三、小程序代码的构成-JSON配置文件">三、小程序代码的构成 - JSON配置文件</h3><p>JSON配置文件的作用：通过不同的**.json**配置文件，可以对小程序项目进行不同级别的配置</p><p>小程序中有4种JSON配置文件，分别为：</p><ol><li>项目根目录中的 <strong>app.json</strong> 配置文件：当前小程序的全局配置，包括了小程序的所有页面路径、窗口外观、界面表现、底部tab等,有以下几个主要配置项：<ol><li>pages: 用来记录当前小程序所有页面的路径</li><li>window：全局定义小程序所有页面的背景色、文字颜色等</li><li>style：全结定义小程序组件所使用的样式版本（默认v2）</li><li>sitemapLocation：用来指明 sitemap.json 的位置</li></ol></li><li>项目根目录中的 <strong>project.config.json</strong> 配置文件：项目配置文件，用来记录我们对小程序开发工具所做的个性化配置，例如：<ol><li>setting 中保存了编译相关的配置</li><li>projectname 中保存项目名称（可随意填写，不等于小程序名字）</li><li>appID 中保存小程序账号的ID（如果是在自己账号上运行别人的项目，记得把APPID改成自己的，否则容易报错）</li></ol></li><li>项目根目录中的 <strong>sitemap.json</strong> 配置文件：配置小程序页面是否允许微信索引。如果允许微信索引，微信会通过爬虫为小程序页面内容建立索引。当用户搜索关键词和页面的索引匹配成功时，小程序的页面将可能展示在搜索结果中。（<em>注：sitemap 的索引提示是默认开启的，如果需要关闭索引提示，可在peoject.config.json 的 setting 中配置字段 <strong>checkSiteMap</strong> 为 false</em>）</li><li>每个页面文件夹中的 <strong>.json</strong> 文件：</li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端笔记 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 微信小程序笔记 </tag>
             
         </tags>
       
@@ -246,6 +221,31 @@
         <tags>
             
             <tag> sql技术 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>微信小程序笔记（一）</title>
+      <link href="/posts/a920c857.html"/>
+      <url>/posts/a920c857.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="一、项目结构">一、项目结构</h3><ol><li><strong>pages</strong>：用来存放所有小程序页面</li><li><strong>utils</strong>：用来存放工具性质的模块（例如：格式化时间的自定义模块）</li><li><strong>app.js</strong>：小程序项目的入口文件</li><li><strong>app.json</strong>：小程序项目的全局配置文件</li><li><strong>app.wxss</strong>：小程序项目的全局样式文件</li><li><strong>project.config.json</strong>：项目的配置文件</li><li><strong>sitemap.json</strong>：用来配置小程序及其页面是否允许被微信索引</li></ol><h3 id="二、小程序的页面组成部分">二、小程序的页面组成部分</h3><p>官方建议把所有小程序页面，都放在pages目录中，以单独文件夹存在，每个页面由4个基本文件组成：</p><ol><li><strong>.js</strong>文件（页面的脚本文件，存放页面的数据、事件处理函数等）</li><li><strong>.json</strong>文件（当前页面的配置文件，配置窗口的外观、表现等）</li><li><strong>.wxml</strong>文件（页面的模板结构文件）</li><li><strong>.wxss</strong>文件（当前页面的样式表文件）</li></ol><h3 id="三、小程序代码的构成-JSON配置文件">三、小程序代码的构成 - JSON配置文件</h3><p>JSON配置文件的作用：通过不同的**.json**配置文件，可以对小程序项目进行不同级别的配置</p><p>小程序中有4种JSON配置文件，分别为：</p><ol><li>项目根目录中的 <strong>app.json</strong> 配置文件：当前小程序的全局配置，包括了小程序的所有页面路径、窗口外观、界面表现、底部tab等,有以下几个主要配置项：<ol><li>pages: 用来记录当前小程序所有页面的路径</li><li>window：全局定义小程序所有页面的背景色、文字颜色等</li><li>style：全结定义小程序组件所使用的样式版本（默认v2）</li><li>sitemapLocation：用来指明 sitemap.json 的位置</li></ol></li><li>项目根目录中的 <strong>project.config.json</strong> 配置文件：项目配置文件，用来记录我们对小程序开发工具所做的个性化配置，例如：<ol><li>setting 中保存了编译相关的配置</li><li>projectname 中保存项目名称（可随意填写，不等于小程序名字）</li><li>appID 中保存小程序账号的ID（如果是在自己账号上运行别人的项目，记得把APPID改成自己的，否则容易报错）</li></ol></li><li>项目根目录中的 <strong>sitemap.json</strong> 配置文件：配置小程序页面是否允许微信索引。如果允许微信索引，微信会通过爬虫为小程序页面内容建立索引。当用户搜索关键词和页面的索引匹配成功时，小程序的页面将可能展示在搜索结果中。（<em>注：sitemap 的索引提示是默认开启的，如果需要关闭索引提示，可在peoject.config.json 的 setting 中配置字段 <strong>checkSiteMap</strong> 为 false</em>）</li><li>每个页面文件夹中的 <strong>.json</strong> 文件：</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 微信小程序笔记 </tag>
             
         </tags>
       
@@ -329,31 +329,6 @@
     
     
     <entry>
-      <title>vue自定义组件</title>
-      <link href="/posts/ec24c4ee.html"/>
-      <url>/posts/ec24c4ee.html</url>
-      
-        <content type="html"><![CDATA[<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>组件<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 1.自定义标签 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">L5501</span>&gt;</span><span class="tag">&lt;/<span class="name">L5501</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 2.自定义标签绑定固定值 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">jumparading</span> <span class="attr">num</span>=<span class="string">&quot;二&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">jumparading</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 3.自定义标签绑定变量 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">hunter</span> <span class="attr">v-bind:three</span>=<span class="string">&quot;number&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">hunter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// 1.自定义标签</span></span></span><br><span class="line"><span class="language-javascript"><span class="title class_">Vue</span>.<span class="title function_">component</span>(<span class="string">&#x27;L5501&#x27;</span>,&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">template</span>: <span class="string">&#x27;&lt;h1&gt; 这是第一个组件 &lt;h1&gt;&#x27;</span></span></span><br><span class="line"><span class="language-javascript">&#125;)</span></span><br><span class="line"><span class="language-javascript"><span class="comment">// 2.自定义标签绑定固定值</span></span></span><br><span class="line"><span class="language-javascript"><span class="title class_">Vue</span>.<span class="title function_">component</span>(<span class="string">&#x27;jumparading&#x27;</span>,&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">props</span>: [<span class="string">&#x27;num&#x27;</span>],</span></span><br><span class="line"><span class="language-javascript"><span class="attr">template</span>: <span class="string">&#x27;&lt;h2&gt; 这是第&#123;&#123;num&#125;&#125;个组件 &lt;h2&gt;&#x27;</span></span></span><br><span class="line"><span class="language-javascript">&#125;)</span></span><br><span class="line"><span class="language-javascript"><span class="comment">// 3.自定义标签绑定变量</span></span></span><br><span class="line"><span class="language-javascript"><span class="title class_">Vue</span>.<span class="title function_">component</span>(<span class="string">&#x27;hunter&#x27;</span>,&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">props</span>: [<span class="string">&#x27;three&#x27;</span>],</span></span><br><span class="line"><span class="language-javascript"><span class="attr">template</span>: <span class="string">&#x27;&lt;h2&gt; 这是第&#123;&#123;three&#125;&#125;个组件 &lt;h2&gt;&#x27;</span></span></span><br><span class="line"><span class="language-javascript">&#125;)</span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> app = <span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">el</span>: <span class="string">&#x27;#app&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript"><span class="attr">data</span>:&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">number</span>:<span class="string">&#x27;三&#x27;</span></span></span><br><span class="line"><span class="language-javascript">&#125;,</span></span><br><span class="line"><span class="language-javascript">&#125;)</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端笔记 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> vue笔记 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>windows激活</title>
       <link href="/posts/91cf1372.html"/>
       <url>/posts/91cf1372.html</url>
@@ -371,6 +346,31 @@
         <tags>
             
             <tag> 电脑知识 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>vue自定义组件</title>
+      <link href="/posts/ec24c4ee.html"/>
+      <url>/posts/ec24c4ee.html</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>组件<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 1.自定义标签 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">L5501</span>&gt;</span><span class="tag">&lt;/<span class="name">L5501</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 2.自定义标签绑定固定值 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">jumparading</span> <span class="attr">num</span>=<span class="string">&quot;二&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">jumparading</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 3.自定义标签绑定变量 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">hunter</span> <span class="attr">v-bind:three</span>=<span class="string">&quot;number&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">hunter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// 1.自定义标签</span></span></span><br><span class="line"><span class="language-javascript"><span class="title class_">Vue</span>.<span class="title function_">component</span>(<span class="string">&#x27;L5501&#x27;</span>,&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">template</span>: <span class="string">&#x27;&lt;h1&gt; 这是第一个组件 &lt;h1&gt;&#x27;</span></span></span><br><span class="line"><span class="language-javascript">&#125;)</span></span><br><span class="line"><span class="language-javascript"><span class="comment">// 2.自定义标签绑定固定值</span></span></span><br><span class="line"><span class="language-javascript"><span class="title class_">Vue</span>.<span class="title function_">component</span>(<span class="string">&#x27;jumparading&#x27;</span>,&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">props</span>: [<span class="string">&#x27;num&#x27;</span>],</span></span><br><span class="line"><span class="language-javascript"><span class="attr">template</span>: <span class="string">&#x27;&lt;h2&gt; 这是第&#123;&#123;num&#125;&#125;个组件 &lt;h2&gt;&#x27;</span></span></span><br><span class="line"><span class="language-javascript">&#125;)</span></span><br><span class="line"><span class="language-javascript"><span class="comment">// 3.自定义标签绑定变量</span></span></span><br><span class="line"><span class="language-javascript"><span class="title class_">Vue</span>.<span class="title function_">component</span>(<span class="string">&#x27;hunter&#x27;</span>,&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">props</span>: [<span class="string">&#x27;three&#x27;</span>],</span></span><br><span class="line"><span class="language-javascript"><span class="attr">template</span>: <span class="string">&#x27;&lt;h2&gt; 这是第&#123;&#123;three&#125;&#125;个组件 &lt;h2&gt;&#x27;</span></span></span><br><span class="line"><span class="language-javascript">&#125;)</span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> app = <span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">el</span>: <span class="string">&#x27;#app&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript"><span class="attr">data</span>:&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">number</span>:<span class="string">&#x27;三&#x27;</span></span></span><br><span class="line"><span class="language-javascript">&#125;,</span></span><br><span class="line"><span class="language-javascript">&#125;)</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue笔记 </tag>
             
         </tags>
       
@@ -429,6 +429,31 @@
     
     
     <entry>
+      <title>numpy数据分析</title>
+      <link href="/posts/9d3872d5.html"/>
+      <url>/posts/9d3872d5.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="我的博客部署成功了">我的博客部署成功了</h2><h1>numpy数据分析**</h1><h2 id="numpy模块">numpy模块</h2><h3 id="数组存在优先级：">数组存在优先级：</h3><ol><li>字符串&gt;浮点型&gt;整数</li></ol><h3 id="数组常用方法：">数组常用方法：</h3><ol><li><p>zero()</p></li><li><p>ones()</p></li><li><p>linspace()</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.linspace(<span class="number">0</span>,<span class="number">100</span>,num=<span class="number">20</span>)  <span class="comment"># 返回从0大100的20个数的一维等差数列对应的数组</span></span><br></pre></td></tr></table></figure><p>​</p></li><li><p>arange()</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.arange(<span class="number">10</span>,<span class="number">50</span>,step=<span class="number">2</span>)  <span class="comment"># 返回从10到50（不包括50）,步数为2的等差数列对应的一维数组</span></span><br></pre></td></tr></table></figure><p>​</p></li><li><p>random系列</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.randint(<span class="number">0</span>,<span class="number">100</span>,size=(<span class="number">5</span>,<span class="number">3</span>)) <span class="comment"># 返回0到100间的五行三列的二维随机数</span></span><br></pre></td></tr></table></figure></li></ol><h3 id="numpy常用属性">numpy常用属性</h3><ol><li><p>shape</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.shape  <span class="comment"># 数组的形状，几行几列</span></span><br></pre></td></tr></table></figure></li><li><p>ndim</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.ndim  <span class="comment"># 返回的是数组的维度</span></span><br></pre></td></tr></table></figure></li><li><p>size</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.size  <span class="comment"># 返回数组元素的个数</span></span><br></pre></td></tr></table></figure></li><li><p>dtype</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.dtype <span class="comment"># 返回是数组元素类型题</span></span><br></pre></td></tr></table></figure></li></ol><p>创建数组并制定元素类型</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],dtype=<span class="string">&#x27;int64&#x27;</span>)</span><br></pre></td></tr></table></figure><p>修改数组元素类型</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.dtype = <span class="string">&#x27;uint8&#x27;</span> <span class="comment"># 修改数组的元素类型</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> python笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据分析 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>测试文章</title>
       <link href="/posts/7a6a6b5a.html"/>
       <url>/posts/7a6a6b5a.html</url>
@@ -446,6 +471,31 @@
         <tags>
             
             <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>uniapp 滚动分页模板</title>
+      <link href="/posts/7d9fb314.html"/>
+      <url>/posts/7d9fb314.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="uniapp-滚动分页模板">uniapp 滚动分页模板</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">&lt;view&gt;</span><br><span class="line">&lt;!-- 滚动分页 --&gt;</span><br><span class="line">&lt;scroll-view v-if=&quot;goodsList.length &gt; 0&quot; scroll-y=&quot;true&quot; @scrolltolower=&quot;loadMore()&quot;</span><br><span class="line">:style=&quot;&#123; height: scrollH + &#x27;rpx&#x27; &#125;&quot;&gt;</span><br><span class="line">&lt;view&gt;</span><br><span class="line">&lt;!-- 搜索框 --&gt;</span><br><span class="line">&lt;view class=&quot;search-box&quot; @click=&quot;toSearchpage&quot;&gt;</span><br><span class="line">&lt;uni-search-bar v-model=&quot;keyword&quot; :radius=&quot;20&quot; bgColor=&quot;#F7F7F7&quot;</span><br><span class="line">cancelButton=&quot;none&quot;&gt;&lt;/uni-search-bar&gt;</span><br><span class="line">&lt;/view&gt;</span><br><span class="line"></span><br><span class="line">&lt;view class=&quot;goods-list&quot;&gt;</span><br><span class="line">&lt;block v-for=&quot;(item,i) in goodsList&quot; :key=&quot;i&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;uni-card @click=&quot;toGood(item)&quot; margin=&quot;20rpx&quot;&gt;</span><br><span class="line">&lt;view class=&quot;goods-item&quot;&gt;</span><br><span class="line">&lt;!-- 左侧盒子 --&gt;</span><br><span class="line">&lt;view class=&quot;goods-item-left&quot;&gt;</span><br><span class="line">&lt;image v-if=&quot;item.pic1Url&quot; mode=&quot;aspectFit&quot; slot=&quot;cover&quot;</span><br><span class="line">:src=&quot;baseUrl + item.pic1Url&quot; class=&quot;goods-pic&quot;&gt;&lt;/image&gt;</span><br><span class="line">&lt;image v-else slot=&#x27;cover&#x27; :src=&quot;require(`@/static/images/items/default.png`)&quot;</span><br><span class="line">class=&quot;goods-pic&quot;&gt;&lt;/image&gt;</span><br><span class="line">&lt;/view&gt;</span><br><span class="line">&lt;!-- 右侧盒子 --&gt;</span><br><span class="line">&lt;view class=&quot;goods-item-right&quot;&gt;</span><br><span class="line">&lt;!-- 商品的名称 --&gt;</span><br><span class="line">&lt;view class=&quot;goods-name&quot;&gt;</span><br><span class="line">【&#123;&#123;item.cateName&#125;&#125;】&#123;&#123;item.itemName&#125;&#125;</span><br><span class="line">&lt;/view&gt;</span><br><span class="line">&lt;view&gt;</span><br><span class="line">外部型号：&#123;&#123;item.externalModel&#125;&#125;</span><br><span class="line">&lt;/view&gt;</span><br><span class="line">&lt;view&gt;</span><br><span class="line">&#123;&#123;item.itemDescription&#125;&#125;</span><br><span class="line">&lt;/view&gt;</span><br><span class="line">&lt;!-- 价格 --&gt;</span><br><span class="line">&lt;view class=&quot;goods-info-box&quot;&gt;</span><br><span class="line">&lt;!-- &lt;view class=&quot;goods-price&quot;&gt;¥&#123;&#123;item.itemsPrice|toFixed&#125;&#125;&lt;/view&gt; --&gt;</span><br><span class="line">&lt;view v-if=&quot;!item.itemsPrice == &#x27;待定&#x27;&quot; class=&quot;goods-price&quot;&gt;¥&#123;&#123;item.itemsPrice&#125;&#125;</span><br><span class="line">&lt;/view&gt;</span><br><span class="line">&lt;/view&gt;</span><br><span class="line">&lt;/view&gt;</span><br><span class="line">&lt;/view&gt;</span><br><span class="line">&lt;/uni-card&gt;</span><br><span class="line">&lt;/block&gt;</span><br><span class="line">&lt;/view&gt;</span><br><span class="line">&lt;/view&gt;</span><br><span class="line">&lt;/scroll-view&gt;</span><br><span class="line">&lt;/view&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import &#123;</span><br><span class="line">getItemList</span><br><span class="line">&#125; from &quot;@/api/system/items.js&quot;</span><br><span class="line">import config from &#x27;@/config&#x27;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">data() &#123;</span><br><span class="line">return &#123;</span><br><span class="line">pages: 1,</span><br><span class="line">//获取滚动距离</span><br><span class="line">scrollH: 0,</span><br><span class="line">// 用户输入的关键词</span><br><span class="line">keyword: &#x27;&#x27;,</span><br><span class="line">// 引入baseUrl</span><br><span class="line">baseUrl: config.baseUrl,</span><br><span class="line">//第几页</span><br><span class="line">pageNum: 0,</span><br><span class="line">goodsList: [],</span><br><span class="line">total: 0,</span><br><span class="line">//默认显示的图片</span><br><span class="line">defaultPic: &#x27;../../static/goods/default.png&#x27;,</span><br><span class="line">// 用于对比是否是最后一页</span><br><span class="line">lastPage: [],</span><br><span class="line">// 是否允许继续滚动</span><br><span class="line">isRock: true</span><br><span class="line">&#125;;</span><br><span class="line">&#125;,</span><br><span class="line">onLoad(options) &#123;</span><br><span class="line">this.keyword = options.keyword || &#x27;&#x27;;</span><br><span class="line">this.getGoodsList();</span><br><span class="line">&#125;,</span><br><span class="line">onShow() &#123;</span><br><span class="line">this.scrollH = this.scrollHs()</span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line"></span><br><span class="line">toGood(item) &#123;</span><br><span class="line">this.$tab.navigateTo(&quot;/pages/good/index?id=&quot; + item.itemId);</span><br><span class="line">&#125;,</span><br><span class="line">toSearchpage() &#123;</span><br><span class="line">this.$tab.navigateTo(&#x27;/pages/searchPage/index&#x27;)</span><br><span class="line">&#125;,</span><br><span class="line">// 获取开始滚动距离</span><br><span class="line">scrollHs() &#123;</span><br><span class="line">let sys = uni.getSystemInfoSync()</span><br><span class="line">let winWidth = sys.windowWidth</span><br><span class="line">let winrate = 750 / winWidth</span><br><span class="line">let winHeight = parseInt(sys.windowHeight * winrate)</span><br><span class="line">return winHeight - 20</span><br><span class="line">&#125;,</span><br><span class="line">// 获取商品</span><br><span class="line">getGoodsList() &#123;</span><br><span class="line">this.pageNum++</span><br><span class="line">getItemList(this.keyword, this.pageNum).then(res =&gt; &#123;</span><br><span class="line">if (res.code === 200) &#123;</span><br><span class="line"></span><br><span class="line">// 判断上一次查询和这次的查询是否一样</span><br><span class="line">if(this.lastPage.length &gt; 0 &amp;&amp; this.lastPage[0].itemId===res.rows[0].itemId)&#123;</span><br><span class="line">this.isRock = false</span><br><span class="line">&#125;else&#123;</span><br><span class="line">this.lastPage = []</span><br><span class="line">res.rows.map(item =&gt; &#123;</span><br><span class="line">this.goodsList.push(item)</span><br><span class="line">this.lastPage.push(item)</span><br><span class="line">&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125; else &#123;</span><br><span class="line">uni.showToast(&#123;</span><br><span class="line">title: &quot;请求出错&quot;,</span><br><span class="line">icon: &quot;error&quot;</span><br><span class="line">&#125;)</span><br><span class="line">&#125;</span><br><span class="line">&#125;)</span><br><span class="line">&#125;,</span><br><span class="line">loadMore() &#123;</span><br><span class="line">if (this.isRock) &#123;</span><br><span class="line">this.getGoodsList()</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;,</span><br><span class="line">filters: &#123; // 将 filters 配置放在组件内部</span><br><span class="line">toFixed(num) &#123;</span><br><span class="line">return Number(num).toFixed(2)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;style lang=&quot;scss&quot;&gt;</span><br><span class="line">.search-box &#123;</span><br><span class="line">background-color: #55aaff;</span><br><span class="line">position: sticky;</span><br><span class="line">z-index: 999;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.goods-item &#123;</span><br><span class="line">display: flex;</span><br><span class="line">padding: 10px 5px;</span><br><span class="line">// border-bottom: 1px solid #f0f0f0;</span><br><span class="line"></span><br><span class="line">.goods-item-left &#123;</span><br><span class="line">margin-right: 5xp;</span><br><span class="line"></span><br><span class="line">.goods-pic &#123;</span><br><span class="line">width: 100px;</span><br><span class="line">height: 100px;</span><br><span class="line">display: block;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.goods-item-right &#123;</span><br><span class="line">display: flex;</span><br><span class="line">flex-direction: column;</span><br><span class="line">justify-content: space-between;</span><br><span class="line">margin-left: 10rpx;</span><br><span class="line"></span><br><span class="line">.goods-name &#123;</span><br><span class="line">font-size: 13px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.goods-info-box &#123;</span><br><span class="line">.goods-price &#123;</span><br><span class="line">color: #c00000;</span><br><span class="line">font-size: 16px;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> uniapp </tag>
             
         </tags>
       
@@ -479,11 +529,36 @@
     
     
     <entry>
-      <title>numpy数据分析</title>
-      <link href="/posts/9d3872d5.html"/>
-      <url>/posts/9d3872d5.html</url>
+      <title>2023读书感悟</title>
+      <link href="/posts/d38ffca4.html"/>
+      <url>/posts/d38ffca4.html</url>
       
-        <content type="html"><![CDATA[<h2 id="我的博客部署成功了">我的博客部署成功了</h2><h1>numpy数据分析**</h1><h2 id="numpy模块">numpy模块</h2><h3 id="数组存在优先级：">数组存在优先级：</h3><ol><li>字符串&gt;浮点型&gt;整数</li></ol><h3 id="数组常用方法：">数组常用方法：</h3><ol><li><p>zero()</p></li><li><p>ones()</p></li><li><p>linspace()</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.linspace(<span class="number">0</span>,<span class="number">100</span>,num=<span class="number">20</span>)  <span class="comment"># 返回从0大100的20个数的一维等差数列对应的数组</span></span><br></pre></td></tr></table></figure><p>​</p></li><li><p>arange()</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.arange(<span class="number">10</span>,<span class="number">50</span>,step=<span class="number">2</span>)  <span class="comment"># 返回从10到50（不包括50）,步数为2的等差数列对应的一维数组</span></span><br></pre></td></tr></table></figure><p>​</p></li><li><p>random系列</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.randint(<span class="number">0</span>,<span class="number">100</span>,size=(<span class="number">5</span>,<span class="number">3</span>)) <span class="comment"># 返回0到100间的五行三列的二维随机数</span></span><br></pre></td></tr></table></figure></li></ol><h3 id="numpy常用属性">numpy常用属性</h3><ol><li><p>shape</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.shape  <span class="comment"># 数组的形状，几行几列</span></span><br></pre></td></tr></table></figure></li><li><p>ndim</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.ndim  <span class="comment"># 返回的是数组的维度</span></span><br></pre></td></tr></table></figure></li><li><p>size</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.size  <span class="comment"># 返回数组元素的个数</span></span><br></pre></td></tr></table></figure></li><li><p>dtype</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.dtype <span class="comment"># 返回是数组元素类型题</span></span><br></pre></td></tr></table></figure></li></ol><p>创建数组并制定元素类型</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],dtype=<span class="string">&#x27;int64&#x27;</span>)</span><br></pre></td></tr></table></figure><p>修改数组元素类型</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.dtype = <span class="string">&#x27;uint8&#x27;</span> <span class="comment"># 修改数组的元素类型</span></span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h2 id="读书感悟">读书感悟</h2><p>自从新开了读书录之后，我就一直打算写一点读书感悟，但是由于各种原因，一直拖到了现在，直到离家的前一天晚上才动笔。</p><p>今年读的书算比较多的，主要还是因为我大半年时间都呆在一个鸟不拉屎的地方吧。其中主要以古文为主，不同于以往以现代国外的心理学或经济学著作为主。其中我比较推崇**《孙子兵法》<strong>和</strong>《吴子》**，不过我看的《吴子》总给我一种不全的感觉，看到兴起就没了。《孙子兵法》和《吴子》给我的感觉就行阴阳一样，互补互全。《孙子兵法》更加像光明正大的用国力去碾压你，稳扎稳打，能不打就不打，能政治解决就政治解决，增强国力，打仗自然强。而《吴子》就显得阴毒不少，关于怎么打仗的部分多于《孙子兵法》，更多的破敌方法，更加实用。从内心上我更喜欢《吴子》，他在现实生活中的实用性更强，而且更容易上手。但是从长远的看,《孙子兵法》才是主要方向，《孙子兵法》就像内功，《吴子》就像招式</p><p>关于毛泽东的书，我感觉他的诗词上下限波动很大，可能和年龄有关吧，我也不好做过多评论，但是还是比较推荐的。看了毛主席的诗词，再看现代一些文青作品，简直就是糟糠，所以我现在很不喜欢王小波和他的那群粉丝文青，我觉得他们缺少一种豪气，一种气魄，让我很反感。再关于《毛选》，这算是我第三次看了，我一直都是跳着看，或者随便翻翻，倒不是我觉得不好。只是看《毛选》得结合很多注释看，让我很头疼，我很不喜欢这种阅读方式。不过他的文章启发性很强，能够提供很多思路，而且辞藻平实，读起来比较接地气，但是相关的事件查起来很头疼</p><p>再说关于科幻的，我一直很喜欢两个科幻作家，一个是长铗，一个是刘慈欣。这两个都是我高中时期读的科幻作品的主要来源，我当年更喜欢长铗，我看的他的作品都是短篇，读起来快，而且他的作品有些青春伤痛文学的影子，对于当时爱而不得的我来说，实在是充满诱惑力。而刘慈欣的书太过于慢热了，特别是《三体》第一部，我读的昏昏欲睡，直到最后大概1/4还是1/5的时候，陡然豁然开朗，整个人如遭雷击一样亢奋起来，特别是结尾关于虫子的讨论，让我一直记忆犹新。</p><p>关于今年读的外国著作，亚当 斯密的《国富论》很不错，确实很有启发性，其中的例子也很有意思，对于现在的一些经济行为也很有参考性。但是《战争论》就低于我的预期，被某些人奉为能和《孙子兵法》相提并论的书，这本书在实用性上远低于《孙子兵法》，更别谈《吴子》，而且写的很枯燥，看得我昏昏欲睡，后面基本和完成任务一样翻书，可能和中西方文化相关吧。但是我还是认为《战争论》的格局远不如《孙子兵法》和《吴子》，花大量文字讲不清楚战争理论，我们这种一般人读没什么作用。不过《怪诞行为学》很有意思，原本是看了B站UP主智能路障的推荐看的，并且在20年疫情的时候就已经看完了，但是现在重新回过来翻一遍，还是觉得很有趣。至于《黑客与画家》，怎么说呢，作为一个程序员，我觉得他的思想挺好的，一通百通，灵活利用的思想确实好，但是现实中真要这么玩，很难。需要一些编程基础来看，这样才更有用。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 杂类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 读书 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>anconda安装</title>
+      <link href="/posts/bfafad47.html"/>
+      <url>/posts/bfafad47.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="这是我关于Ancond的一些记录">这是我关于Ancond的一些记录</h2><h3 id="假如我想要在anconda环境中安装一个xlwt">假如我想要在anconda环境中安装一个xlwt</h3><h4 id="1、首先我需要了解现有的虚拟环境">1、首先我需要了解现有的虚拟环境</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda info <span class="literal">--env</span></span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">conda env list</span><br></pre></td></tr></table></figure><p>我的结果如下</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># conda environments:</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">conda_django             C:\Users\xxx\.conda\envs\conda_django</span><br><span class="line">conda_snake              C:\Users\xxx\.conda\envs\conda_snake</span><br><span class="line">mydjango_env             C:\Users\xxx\.conda\envs\mydjango_env</span><br><span class="line">pythonProject1           C:\Users\xxx\.conda\envs\pythonProject1</span><br><span class="line">snake                    C:\Users\xxx\.conda\envs\snake</span><br><span class="line">base                  *  D:\tools\anaconda</span><br></pre></td></tr></table></figure><p>base前带个*号，这表示我现在的环境就是base</p><h4 id="2、激活虚拟环境">2、激活虚拟环境</h4><p>这里我激活base环境</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">activate base</span><br></pre></td></tr></table></figure><h4 id="3、安装xlwt">3、安装xlwt</h4><p>这里我以xlwt为例</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install <span class="literal">-i</span> https://pypi.douban.com/simple xlwt</span><br></pre></td></tr></table></figure><h3 id="创建新的虚拟环境">创建新的虚拟环境</h3><h4 id="1、创建虚拟环境">1、创建虚拟环境</h4><p>指定新的环境名称<strong>cxk</strong>，指定python版本这里为3.7</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create <span class="literal">--name</span> cxk python=<span class="number">3.7</span></span><br></pre></td></tr></table></figure><h4 id="2、查看已有的虚拟环境">2、查看已有的虚拟环境</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda info <span class="literal">--env</span></span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">conda env list</span><br></pre></td></tr></table></figure><h4 id="3、切换到cxk环境">3、切换到<strong>cxk</strong>环境</h4><p>切换到想要的虚拟环境，我这里切换到<strong>cxk</strong></p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate cxk</span><br></pre></td></tr></table></figure><h4 id="4、安装ipykernel">4、安装ipykernel</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda install ipykernel</span><br><span class="line">python <span class="literal">-m</span> ipykernel install <span class="literal">--name</span> paddle</span><br><span class="line"><span class="comment"># 至此完成</span></span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -495,32 +570,7 @@
       
         <tags>
             
-            <tag> 数据分析 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>uniapp 滚动分页模板</title>
-      <link href="/posts/7d9fb314.html"/>
-      <url>/posts/7d9fb314.html</url>
-      
-        <content type="html"><![CDATA[<h3 id="uniapp-滚动分页模板">uniapp 滚动分页模板</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">&lt;view&gt;</span><br><span class="line">&lt;!-- 滚动分页 --&gt;</span><br><span class="line">&lt;scroll-view v-if=&quot;goodsList.length &gt; 0&quot; scroll-y=&quot;true&quot; @scrolltolower=&quot;loadMore()&quot;</span><br><span class="line">:style=&quot;&#123; height: scrollH + &#x27;rpx&#x27; &#125;&quot;&gt;</span><br><span class="line">&lt;view&gt;</span><br><span class="line">&lt;!-- 搜索框 --&gt;</span><br><span class="line">&lt;view class=&quot;search-box&quot; @click=&quot;toSearchpage&quot;&gt;</span><br><span class="line">&lt;uni-search-bar v-model=&quot;keyword&quot; :radius=&quot;20&quot; bgColor=&quot;#F7F7F7&quot;</span><br><span class="line">cancelButton=&quot;none&quot;&gt;&lt;/uni-search-bar&gt;</span><br><span class="line">&lt;/view&gt;</span><br><span class="line"></span><br><span class="line">&lt;view class=&quot;goods-list&quot;&gt;</span><br><span class="line">&lt;block v-for=&quot;(item,i) in goodsList&quot; :key=&quot;i&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;uni-card @click=&quot;toGood(item)&quot; margin=&quot;20rpx&quot;&gt;</span><br><span class="line">&lt;view class=&quot;goods-item&quot;&gt;</span><br><span class="line">&lt;!-- 左侧盒子 --&gt;</span><br><span class="line">&lt;view class=&quot;goods-item-left&quot;&gt;</span><br><span class="line">&lt;image v-if=&quot;item.pic1Url&quot; mode=&quot;aspectFit&quot; slot=&quot;cover&quot;</span><br><span class="line">:src=&quot;baseUrl + item.pic1Url&quot; class=&quot;goods-pic&quot;&gt;&lt;/image&gt;</span><br><span class="line">&lt;image v-else slot=&#x27;cover&#x27; :src=&quot;require(`@/static/images/items/default.png`)&quot;</span><br><span class="line">class=&quot;goods-pic&quot;&gt;&lt;/image&gt;</span><br><span class="line">&lt;/view&gt;</span><br><span class="line">&lt;!-- 右侧盒子 --&gt;</span><br><span class="line">&lt;view class=&quot;goods-item-right&quot;&gt;</span><br><span class="line">&lt;!-- 商品的名称 --&gt;</span><br><span class="line">&lt;view class=&quot;goods-name&quot;&gt;</span><br><span class="line">【&#123;&#123;item.cateName&#125;&#125;】&#123;&#123;item.itemName&#125;&#125;</span><br><span class="line">&lt;/view&gt;</span><br><span class="line">&lt;view&gt;</span><br><span class="line">外部型号：&#123;&#123;item.externalModel&#125;&#125;</span><br><span class="line">&lt;/view&gt;</span><br><span class="line">&lt;view&gt;</span><br><span class="line">&#123;&#123;item.itemDescription&#125;&#125;</span><br><span class="line">&lt;/view&gt;</span><br><span class="line">&lt;!-- 价格 --&gt;</span><br><span class="line">&lt;view class=&quot;goods-info-box&quot;&gt;</span><br><span class="line">&lt;!-- &lt;view class=&quot;goods-price&quot;&gt;¥&#123;&#123;item.itemsPrice|toFixed&#125;&#125;&lt;/view&gt; --&gt;</span><br><span class="line">&lt;view v-if=&quot;!item.itemsPrice == &#x27;待定&#x27;&quot; class=&quot;goods-price&quot;&gt;¥&#123;&#123;item.itemsPrice&#125;&#125;</span><br><span class="line">&lt;/view&gt;</span><br><span class="line">&lt;/view&gt;</span><br><span class="line">&lt;/view&gt;</span><br><span class="line">&lt;/view&gt;</span><br><span class="line">&lt;/uni-card&gt;</span><br><span class="line">&lt;/block&gt;</span><br><span class="line">&lt;/view&gt;</span><br><span class="line">&lt;/view&gt;</span><br><span class="line">&lt;/scroll-view&gt;</span><br><span class="line">&lt;/view&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import &#123;</span><br><span class="line">getItemList</span><br><span class="line">&#125; from &quot;@/api/system/items.js&quot;</span><br><span class="line">import config from &#x27;@/config&#x27;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">data() &#123;</span><br><span class="line">return &#123;</span><br><span class="line">pages: 1,</span><br><span class="line">//获取滚动距离</span><br><span class="line">scrollH: 0,</span><br><span class="line">// 用户输入的关键词</span><br><span class="line">keyword: &#x27;&#x27;,</span><br><span class="line">// 引入baseUrl</span><br><span class="line">baseUrl: config.baseUrl,</span><br><span class="line">//第几页</span><br><span class="line">pageNum: 0,</span><br><span class="line">goodsList: [],</span><br><span class="line">total: 0,</span><br><span class="line">//默认显示的图片</span><br><span class="line">defaultPic: &#x27;../../static/goods/default.png&#x27;,</span><br><span class="line">// 用于对比是否是最后一页</span><br><span class="line">lastPage: [],</span><br><span class="line">// 是否允许继续滚动</span><br><span class="line">isRock: true</span><br><span class="line">&#125;;</span><br><span class="line">&#125;,</span><br><span class="line">onLoad(options) &#123;</span><br><span class="line">this.keyword = options.keyword || &#x27;&#x27;;</span><br><span class="line">this.getGoodsList();</span><br><span class="line">&#125;,</span><br><span class="line">onShow() &#123;</span><br><span class="line">this.scrollH = this.scrollHs()</span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line"></span><br><span class="line">toGood(item) &#123;</span><br><span class="line">this.$tab.navigateTo(&quot;/pages/good/index?id=&quot; + item.itemId);</span><br><span class="line">&#125;,</span><br><span class="line">toSearchpage() &#123;</span><br><span class="line">this.$tab.navigateTo(&#x27;/pages/searchPage/index&#x27;)</span><br><span class="line">&#125;,</span><br><span class="line">// 获取开始滚动距离</span><br><span class="line">scrollHs() &#123;</span><br><span class="line">let sys = uni.getSystemInfoSync()</span><br><span class="line">let winWidth = sys.windowWidth</span><br><span class="line">let winrate = 750 / winWidth</span><br><span class="line">let winHeight = parseInt(sys.windowHeight * winrate)</span><br><span class="line">return winHeight - 20</span><br><span class="line">&#125;,</span><br><span class="line">// 获取商品</span><br><span class="line">getGoodsList() &#123;</span><br><span class="line">this.pageNum++</span><br><span class="line">getItemList(this.keyword, this.pageNum).then(res =&gt; &#123;</span><br><span class="line">if (res.code === 200) &#123;</span><br><span class="line"></span><br><span class="line">// 判断上一次查询和这次的查询是否一样</span><br><span class="line">if(this.lastPage.length &gt; 0 &amp;&amp; this.lastPage[0].itemId===res.rows[0].itemId)&#123;</span><br><span class="line">this.isRock = false</span><br><span class="line">&#125;else&#123;</span><br><span class="line">this.lastPage = []</span><br><span class="line">res.rows.map(item =&gt; &#123;</span><br><span class="line">this.goodsList.push(item)</span><br><span class="line">this.lastPage.push(item)</span><br><span class="line">&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125; else &#123;</span><br><span class="line">uni.showToast(&#123;</span><br><span class="line">title: &quot;请求出错&quot;,</span><br><span class="line">icon: &quot;error&quot;</span><br><span class="line">&#125;)</span><br><span class="line">&#125;</span><br><span class="line">&#125;)</span><br><span class="line">&#125;,</span><br><span class="line">loadMore() &#123;</span><br><span class="line">if (this.isRock) &#123;</span><br><span class="line">this.getGoodsList()</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;,</span><br><span class="line">filters: &#123; // 将 filters 配置放在组件内部</span><br><span class="line">toFixed(num) &#123;</span><br><span class="line">return Number(num).toFixed(2)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;style lang=&quot;scss&quot;&gt;</span><br><span class="line">.search-box &#123;</span><br><span class="line">background-color: #55aaff;</span><br><span class="line">position: sticky;</span><br><span class="line">z-index: 999;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.goods-item &#123;</span><br><span class="line">display: flex;</span><br><span class="line">padding: 10px 5px;</span><br><span class="line">// border-bottom: 1px solid #f0f0f0;</span><br><span class="line"></span><br><span class="line">.goods-item-left &#123;</span><br><span class="line">margin-right: 5xp;</span><br><span class="line"></span><br><span class="line">.goods-pic &#123;</span><br><span class="line">width: 100px;</span><br><span class="line">height: 100px;</span><br><span class="line">display: block;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.goods-item-right &#123;</span><br><span class="line">display: flex;</span><br><span class="line">flex-direction: column;</span><br><span class="line">justify-content: space-between;</span><br><span class="line">margin-left: 10rpx;</span><br><span class="line"></span><br><span class="line">.goods-name &#123;</span><br><span class="line">font-size: 13px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.goods-info-box &#123;</span><br><span class="line">.goods-price &#123;</span><br><span class="line">color: #c00000;</span><br><span class="line">font-size: 16px;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端笔记 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> uniapp </tag>
+            <tag> ancodna </tag>
             
         </tags>
       
@@ -596,56 +646,6 @@
         <tags>
             
             <tag> linux </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>2023读书感悟</title>
-      <link href="/posts/d38ffca4.html"/>
-      <url>/posts/d38ffca4.html</url>
-      
-        <content type="html"><![CDATA[<h2 id="读书感悟">读书感悟</h2><p>自从新开了读书录之后，我就一直打算写一点读书感悟，但是由于各种原因，一直拖到了现在，直到离家的前一天晚上才动笔。</p><p>今年读的书算比较多的，主要还是因为我大半年时间都呆在一个鸟不拉屎的地方吧。其中主要以古文为主，不同于以往以现代国外的心理学或经济学著作为主。其中我比较推崇**《孙子兵法》<strong>和</strong>《吴子》**，不过我看的《吴子》总给我一种不全的感觉，看到兴起就没了。《孙子兵法》和《吴子》给我的感觉就行阴阳一样，互补互全。《孙子兵法》更加像光明正大的用国力去碾压你，稳扎稳打，能不打就不打，能政治解决就政治解决，增强国力，打仗自然强。而《吴子》就显得阴毒不少，关于怎么打仗的部分多于《孙子兵法》，更多的破敌方法，更加实用。从内心上我更喜欢《吴子》，他在现实生活中的实用性更强，而且更容易上手。但是从长远的看,《孙子兵法》才是主要方向，《孙子兵法》就像内功，《吴子》就像招式</p><p>关于毛泽东的书，我感觉他的诗词上下限波动很大，可能和年龄有关吧，我也不好做过多评论，但是还是比较推荐的。看了毛主席的诗词，再看现代一些文青作品，简直就是糟糠，所以我现在很不喜欢王小波和他的那群粉丝文青，我觉得他们缺少一种豪气，一种气魄，让我很反感。再关于《毛选》，这算是我第三次看了，我一直都是跳着看，或者随便翻翻，倒不是我觉得不好。只是看《毛选》得结合很多注释看，让我很头疼，我很不喜欢这种阅读方式。不过他的文章启发性很强，能够提供很多思路，而且辞藻平实，读起来比较接地气，但是相关的事件查起来很头疼</p><p>再说关于科幻的，我一直很喜欢两个科幻作家，一个是长铗，一个是刘慈欣。这两个都是我高中时期读的科幻作品的主要来源，我当年更喜欢长铗，我看的他的作品都是短篇，读起来快，而且他的作品有些青春伤痛文学的影子，对于当时爱而不得的我来说，实在是充满诱惑力。而刘慈欣的书太过于慢热了，特别是《三体》第一部，我读的昏昏欲睡，直到最后大概1/4还是1/5的时候，陡然豁然开朗，整个人如遭雷击一样亢奋起来，特别是结尾关于虫子的讨论，让我一直记忆犹新。</p><p>关于今年读的外国著作，亚当 斯密的《国富论》很不错，确实很有启发性，其中的例子也很有意思，对于现在的一些经济行为也很有参考性。但是《战争论》就低于我的预期，被某些人奉为能和《孙子兵法》相提并论的书，这本书在实用性上远低于《孙子兵法》，更别谈《吴子》，而且写的很枯燥，看得我昏昏欲睡，后面基本和完成任务一样翻书，可能和中西方文化相关吧。但是我还是认为《战争论》的格局远不如《孙子兵法》和《吴子》，花大量文字讲不清楚战争理论，我们这种一般人读没什么作用。不过《怪诞行为学》很有意思，原本是看了B站UP主智能路障的推荐看的，并且在20年疫情的时候就已经看完了，但是现在重新回过来翻一遍，还是觉得很有趣。至于《黑客与画家》，怎么说呢，作为一个程序员，我觉得他的思想挺好的，一通百通，灵活利用的思想确实好，但是现实中真要这么玩，很难。需要一些编程基础来看，这样才更有用。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 杂类 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 读书 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>anconda安装</title>
-      <link href="/posts/bfafad47.html"/>
-      <url>/posts/bfafad47.html</url>
-      
-        <content type="html"><![CDATA[<h2 id="这是我关于Ancond的一些记录">这是我关于Ancond的一些记录</h2><h3 id="假如我想要在anconda环境中安装一个xlwt">假如我想要在anconda环境中安装一个xlwt</h3><h4 id="1、首先我需要了解现有的虚拟环境">1、首先我需要了解现有的虚拟环境</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda info <span class="literal">--env</span></span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">conda env list</span><br></pre></td></tr></table></figure><p>我的结果如下</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># conda environments:</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">conda_django             C:\Users\xxx\.conda\envs\conda_django</span><br><span class="line">conda_snake              C:\Users\xxx\.conda\envs\conda_snake</span><br><span class="line">mydjango_env             C:\Users\xxx\.conda\envs\mydjango_env</span><br><span class="line">pythonProject1           C:\Users\xxx\.conda\envs\pythonProject1</span><br><span class="line">snake                    C:\Users\xxx\.conda\envs\snake</span><br><span class="line">base                  *  D:\tools\anaconda</span><br></pre></td></tr></table></figure><p>base前带个*号，这表示我现在的环境就是base</p><h4 id="2、激活虚拟环境">2、激活虚拟环境</h4><p>这里我激活base环境</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">activate base</span><br></pre></td></tr></table></figure><h4 id="3、安装xlwt">3、安装xlwt</h4><p>这里我以xlwt为例</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install <span class="literal">-i</span> https://pypi.douban.com/simple xlwt</span><br></pre></td></tr></table></figure><h3 id="创建新的虚拟环境">创建新的虚拟环境</h3><h4 id="1、创建虚拟环境">1、创建虚拟环境</h4><p>指定新的环境名称<strong>cxk</strong>，指定python版本这里为3.7</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create <span class="literal">--name</span> cxk python=<span class="number">3.7</span></span><br></pre></td></tr></table></figure><h4 id="2、查看已有的虚拟环境">2、查看已有的虚拟环境</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda info <span class="literal">--env</span></span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">conda env list</span><br></pre></td></tr></table></figure><h4 id="3、切换到cxk环境">3、切换到<strong>cxk</strong>环境</h4><p>切换到想要的虚拟环境，我这里切换到<strong>cxk</strong></p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate cxk</span><br></pre></td></tr></table></figure><h4 id="4、安装ipykernel">4、安装ipykernel</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda install ipykernel</span><br><span class="line">python <span class="literal">-m</span> ipykernel install <span class="literal">--name</span> paddle</span><br><span class="line"><span class="comment"># 至此完成</span></span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> python笔记 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> ancodna </tag>
             
         </tags>
       

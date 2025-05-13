@@ -6,7 +6,7 @@
   <link href="https://www.mentaltest.run/atom.xml" rel="self"/>
   
   <link href="https://www.mentaltest.run/"/>
-  <updated>2025-05-08T02:00:28.779Z</updated>
+  <updated>2025-05-13T15:28:54.452Z</updated>
   <id>https://www.mentaltest.run/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>分布式事务常见的实现方式</title>
+    <link href="https://www.mentaltest.run/posts/9505da30.html"/>
+    <id>https://www.mentaltest.run/posts/9505da30.html</id>
+    <published>2025-05-13T15:29:17.623Z</published>
+    <updated>2025-05-13T15:28:54.452Z</updated>
+    
+    <content type="html"><![CDATA[<h1>分布式事务常见的实现方式</h1><h3 id="两阶段提交协议（2PC，-Two-Phase-Commit）">两阶段提交协议（2PC， Two-Phase Commit）</h3><p>两阶段提交协议是最经典的分布式事务协议，主要分为两个阶段：</p><p><strong>准备阶段（Prepare Phase）</strong>：协调者向所有参与者发送准备请求，参与者执行事务并记录日志，但不提交。参与者将执行结果（准备成功或失败）返回给协调者。</p><p><strong>提交阶段（Commit Phase）</strong>：如果所有参与者都准备成功，协调者发送提交请求，参与者提交事务；如果有任何参与者准备失败，协调者发送回滚请求，所有参与者回滚事务。</p><p>2PC的优点是实现简单且具有强一致性，缺点是存在协调者单点故障问题，在准备阶段完成后，若协调者宕机，会导致参与者永久阻塞。且在网络分区或节点故障时可能会导致参与者长时间锁定资源。</p><h3 id="三阶段提交协议（3PC，Three-Phase-Commit）">三阶段提交协议（3PC，Three-Phase Commit）</h3><p>三阶段提交协议是对两阶段提交协议的改进，增加了一个“预提交”阶段，减少了系统阻塞时间：</p><p><strong>准备阶段（Prepare Phase）</strong>：与2PC相同，协调者向参与者发送准备请求。</p><p><strong>预提交阶段（Pre-Commit Phase）</strong>：协调者发送预提交请求，参与者收到后可以立即回复并等待最终决定。</p><p><strong>提交阶段（Commit Phase）</strong>：协调者根据所有参与者的回应，决定提交或回滚。</p><p>3PC的优点是减少了阻塞时间，但实现较为复杂。</p><h3 id="基于消息队列的最终一致性">基于消息队列的最终一致性</h3><p>这种方式通过使用消息队列和补偿机制来实现最终一致性：</p><p><strong>事务消息</strong>：在事务操作的每一步都通过消息队列通知其他服务，确保消息的可靠传递。</p><p><strong>补偿机制</strong>：如果某一步操作失败，通过补偿机制撤销之前的操作，保证系统最终一致。</p><p>这种方式的优点是实现简单，且适用于许多实际场景，但缺点是需要设计补偿逻辑，需要消息队列支持事务消息（如RocketMQ的Half Message机制），消费者端必须实现幂等处理，可能会增加系统复杂度，且可能引入消息积压、消费延迟等问题。</p><h3 id="Saga模式">Saga模式</h3><p>Saga模式将长事务拆分为一系列短事务，每个短事务完成后触发下一个事务，失败时执行补偿操作：</p><p><strong>顺序执行</strong>：每个子事务顺序执行，如果其中某个子事务失败，执行相应的补偿事务。</p><p><strong>并行执行</strong>：多个子事务可以并行执行，所有子事务成功后事务才算成功，如果某个子事务失败，执行相应的补偿事务。</p><p>Saga模式的优点是避免了长时间锁定资源，缺点是需要设计每个子事务的补偿逻辑。</p><h3 id="TCC（Try-Confirm-Cancel）模式">TCC（Try-Confirm-Cancel）模式</h3><p>TCC模式将每个业务操作分为三个步骤：尝试（Try）、确认（Confirm）和取消（Cancel）：</p><p><strong>Try</strong>：尝试执行业务操作，预留必要的资源。</p><p><strong>Confirm</strong>：确认执行业务操作，真正提交事务。</p><p><strong>Cancel</strong>：取消业务操作，释放预留的资源。</p><p>TCC模式的优点是灵活性高，但实现复杂，需要设计每个步骤的逻辑，Confirm/Cancel操作必须实现幂等性，需要业务代码显式实现三阶段逻辑，侵入性较强，适合资金类等需要严格资源控制的场景。</p><h3 id="基于数据库的分布式事务">基于数据库的分布式事务</h3><p>一些现代数据库（如Google Spanner、CockroachDB等）提供了内置的分布式事务支持：</p><p><strong>分布式锁</strong>：利用数据库的分布式锁机制，确保多个节点之间的事务一致性。</p><p><strong>多版本并发控制（MVCC）</strong>：通过多版本并发控制实现高效的事务处理。</p><p>这种方式的优点是开发简单，缺点是依赖于特定数据库的实现。</p>]]></content>
+    
+    
+    <summary type="html">分布式事务常见的实现方式</summary>
+    
+    
+    
+    <category term="java笔记" scheme="https://www.mentaltest.run/categories/java%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="java" scheme="https://www.mentaltest.run/tags/java/"/>
+    
+  </entry>
   
   <entry>
     <title>什么是分布式事务</title>
@@ -101,23 +122,23 @@
   </entry>
   
   <entry>
-    <title>菜谱</title>
-    <link href="https://www.mentaltest.run/posts/70a7eda9.html"/>
-    <id>https://www.mentaltest.run/posts/70a7eda9.html</id>
+    <title>欢迎来到我的博客</title>
+    <link href="https://www.mentaltest.run/posts/b250e9bb.html"/>
+    <id>https://www.mentaltest.run/posts/b250e9bb.html</id>
     <published>2025-02-26T12:33:59.356Z</published>
-    <updated>2025-04-22T03:26:26.136Z</updated>
+    <updated>2025-04-22T03:28:08.462Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="擂辣椒茄子皮蛋">擂辣椒茄子皮蛋</h3><p>主料：茄子(1个)，皮蛋（2个)，辣椒（看个人，一般两个）</p><p>辅料：蒜，芝麻油</p><p>酱料：老抽（2勺），陈醋（2勺），蚝油（1勺），少量盐</p><p>步骤：</p><ol><li>茄子洗净去皮切成小粗条，放锅上去蒸</li><li>皮蛋剥壳切块</li><li>茄子蒸软后放入碗中</li><li>大蒜切粒</li><li>辣椒洗干净放入锅中加油煎软，撕去表皮</li><li>放放酱料一起捣烂</li></ol>]]></content>
+    <content type="html"><![CDATA[<!-- # 本地图片 --><!-- <img src="/assets/pusheencode.webp" alt="示例图片" style="zoom:50%;" /> --><h1>一起变强吧🚅</h1><p><img src="https://w.wallhaven.cc/full/ex/wallhaven-exyp3k.jpg" alt="code"></p><h1>后续计划✈️</h1><h3 id="十二月计划">十二月计划</h3><p>这几个月过的过于混沌，又是工作，又是前途，搞得有些焦头烂额，所以先做点计划吧：</p><ol><li>图集功能：因为我今年买了相机，所以我想博客增加图集功能，用来存储我拍的照片</li><li>读书展示：今年还买了iReader，看了一些书，但是iReader不知道是我用的不太熟还是没有这个功能，所以我想做到博客里面</li><li>写十篇文章：之前太忙了，正好手头有一些东西可以写成文章</li><li>项目日志模块：以后每个项目都要增加一个日志，记录自己在做的日志</li><li>python模块：一直都想学python，一直都在🕊️</li><li>练习SQL：时间太久没怎么练习了，都忘光了😅</li></ol>]]></content>
     
     
-    <summary type="html">这只是个测试文件</summary>
+    <summary type="html">欢迎来到我的博客</summary>
     
     
     
     <category term="杂类" scheme="https://www.mentaltest.run/categories/%E6%9D%82%E7%B1%BB/"/>
     
     
-    <category term="菜谱" scheme="https://www.mentaltest.run/tags/%E8%8F%9C%E8%B0%B1/"/>
+    <category term="日志" scheme="https://www.mentaltest.run/tags/%E6%97%A5%E5%BF%97/"/>
     
   </entry>
   
@@ -143,23 +164,23 @@
   </entry>
   
   <entry>
-    <title>欢迎来到我的博客</title>
-    <link href="https://www.mentaltest.run/posts/b250e9bb.html"/>
-    <id>https://www.mentaltest.run/posts/b250e9bb.html</id>
+    <title>菜谱</title>
+    <link href="https://www.mentaltest.run/posts/70a7eda9.html"/>
+    <id>https://www.mentaltest.run/posts/70a7eda9.html</id>
     <published>2025-02-26T12:33:59.356Z</published>
-    <updated>2025-04-22T03:28:08.462Z</updated>
+    <updated>2025-04-22T03:26:26.136Z</updated>
     
-    <content type="html"><![CDATA[<!-- # 本地图片 --><!-- <img src="/assets/pusheencode.webp" alt="示例图片" style="zoom:50%;" /> --><h1>一起变强吧🚅</h1><p><img src="https://w.wallhaven.cc/full/ex/wallhaven-exyp3k.jpg" alt="code"></p><h1>后续计划✈️</h1><h3 id="十二月计划">十二月计划</h3><p>这几个月过的过于混沌，又是工作，又是前途，搞得有些焦头烂额，所以先做点计划吧：</p><ol><li>图集功能：因为我今年买了相机，所以我想博客增加图集功能，用来存储我拍的照片</li><li>读书展示：今年还买了iReader，看了一些书，但是iReader不知道是我用的不太熟还是没有这个功能，所以我想做到博客里面</li><li>写十篇文章：之前太忙了，正好手头有一些东西可以写成文章</li><li>项目日志模块：以后每个项目都要增加一个日志，记录自己在做的日志</li><li>python模块：一直都想学python，一直都在🕊️</li><li>练习SQL：时间太久没怎么练习了，都忘光了😅</li></ol>]]></content>
+    <content type="html"><![CDATA[<h3 id="擂辣椒茄子皮蛋">擂辣椒茄子皮蛋</h3><p>主料：茄子(1个)，皮蛋（2个)，辣椒（看个人，一般两个）</p><p>辅料：蒜，芝麻油</p><p>酱料：老抽（2勺），陈醋（2勺），蚝油（1勺），少量盐</p><p>步骤：</p><ol><li>茄子洗净去皮切成小粗条，放锅上去蒸</li><li>皮蛋剥壳切块</li><li>茄子蒸软后放入碗中</li><li>大蒜切粒</li><li>辣椒洗干净放入锅中加油煎软，撕去表皮</li><li>放放酱料一起捣烂</li></ol>]]></content>
     
     
-    <summary type="html">欢迎来到我的博客</summary>
+    <summary type="html">这只是个测试文件</summary>
     
     
     
     <category term="杂类" scheme="https://www.mentaltest.run/categories/%E6%9D%82%E7%B1%BB/"/>
     
     
-    <category term="日志" scheme="https://www.mentaltest.run/tags/%E6%97%A5%E5%BF%97/"/>
+    <category term="菜谱" scheme="https://www.mentaltest.run/tags/%E8%8F%9C%E8%B0%B1/"/>
     
   </entry>
   
@@ -206,23 +227,23 @@
   </entry>
   
   <entry>
-    <title>常用sql语句</title>
-    <link href="https://www.mentaltest.run/posts/6605dc2.html"/>
-    <id>https://www.mentaltest.run/posts/6605dc2.html</id>
+    <title>微信小程序笔记（一）</title>
+    <link href="https://www.mentaltest.run/posts/a920c857.html"/>
+    <id>https://www.mentaltest.run/posts/a920c857.html</id>
     <published>2025-02-26T12:33:59.355Z</published>
-    <updated>2025-04-22T03:31:07.476Z</updated>
+    <updated>2025-04-22T03:30:20.197Z</updated>
     
-    <content type="html"><![CDATA[<h5 id="展示所有数据库">展示所有数据库</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> databases</span><br></pre></td></tr></table></figure><h5 id="创建一个student-grade表">创建一个student_grade表</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE TABLE</span> student_grade(</span><br><span class="line">id <span class="type">int</span>,</span><br><span class="line">name <span class="type">VARCHAR</span>(<span class="number">20</span>),</span><br><span class="line">enligsh <span class="type">DECIMAL</span>(<span class="number">3</span>,<span class="number">1</span>),</span><br><span class="line">math <span class="type">DECIMAL</span>(<span class="number">3</span>,<span class="number">1</span>),</span><br><span class="line">chinese <span class="type">DECIMAL</span>(<span class="number">3</span>,<span class="number">1</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure><p><em>此处enligsh为故意写错，方便下面修改示范</em></p><h5 id="插入两个数据">插入两个数据</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT INTO</span> student_grade ( id, NAME, enligsh, math, chinese )</span><br><span class="line"><span class="keyword">VALUES</span></span><br><span class="line">(<span class="number">1</span>,<span class="string">&#x27;李狗蛋&#x27;</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>),</span><br><span class="line">(<span class="number">2</span>,<span class="string">&#x27;聪明的李某人&#x27;</span>,<span class="number">99</span>,<span class="number">99</span>,<span class="number">99</span>);</span><br></pre></td></tr></table></figure><h5 id="查看表结构">查看表结构</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">desc</span> student_grade</span><br></pre></td></tr></table></figure><p>此时发现enligsh拼写错误</p><h5 id="修改字段名">修改字段名</h5><p>参考例句：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER TABLE</span> 表名 CHANGE 旧字段名 新字段名 新数据类型;</span><br></pre></td></tr></table></figure><p>此处所用：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER TABLE</span> student_grade CHANGE enligsh  english <span class="type">DECIMAL</span>(<span class="number">3</span>,<span class="number">1</span>);</span><br></pre></td></tr></table></figure><p>这个方法也可以用来修改指定字段的数据类型，<em><strong>但是修改字段类型需要保证改后的数据类型能兼容之前的数据</strong></em>，例如此处我修改name的长度</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER TABLE</span> student_grade CHANGE name name <span class="type">VARCHAR</span>(<span class="number">100</span>);</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-    <summary type="html">经常会用到，但是经常忘记的sql语句</summary>
+    <content type="html"><![CDATA[<h3 id="一、项目结构">一、项目结构</h3><ol><li><strong>pages</strong>：用来存放所有小程序页面</li><li><strong>utils</strong>：用来存放工具性质的模块（例如：格式化时间的自定义模块）</li><li><strong>app.js</strong>：小程序项目的入口文件</li><li><strong>app.json</strong>：小程序项目的全局配置文件</li><li><strong>app.wxss</strong>：小程序项目的全局样式文件</li><li><strong>project.config.json</strong>：项目的配置文件</li><li><strong>sitemap.json</strong>：用来配置小程序及其页面是否允许被微信索引</li></ol><h3 id="二、小程序的页面组成部分">二、小程序的页面组成部分</h3><p>官方建议把所有小程序页面，都放在pages目录中，以单独文件夹存在，每个页面由4个基本文件组成：</p><ol><li><strong>.js</strong>文件（页面的脚本文件，存放页面的数据、事件处理函数等）</li><li><strong>.json</strong>文件（当前页面的配置文件，配置窗口的外观、表现等）</li><li><strong>.wxml</strong>文件（页面的模板结构文件）</li><li><strong>.wxss</strong>文件（当前页面的样式表文件）</li></ol><h3 id="三、小程序代码的构成-JSON配置文件">三、小程序代码的构成 - JSON配置文件</h3><p>JSON配置文件的作用：通过不同的**.json**配置文件，可以对小程序项目进行不同级别的配置</p><p>小程序中有4种JSON配置文件，分别为：</p><ol><li>项目根目录中的 <strong>app.json</strong> 配置文件：当前小程序的全局配置，包括了小程序的所有页面路径、窗口外观、界面表现、底部tab等,有以下几个主要配置项：<ol><li>pages: 用来记录当前小程序所有页面的路径</li><li>window：全局定义小程序所有页面的背景色、文字颜色等</li><li>style：全结定义小程序组件所使用的样式版本（默认v2）</li><li>sitemapLocation：用来指明 sitemap.json 的位置</li></ol></li><li>项目根目录中的 <strong>project.config.json</strong> 配置文件：项目配置文件，用来记录我们对小程序开发工具所做的个性化配置，例如：<ol><li>setting 中保存了编译相关的配置</li><li>projectname 中保存项目名称（可随意填写，不等于小程序名字）</li><li>appID 中保存小程序账号的ID（如果是在自己账号上运行别人的项目，记得把APPID改成自己的，否则容易报错）</li></ol></li><li>项目根目录中的 <strong>sitemap.json</strong> 配置文件：配置小程序页面是否允许微信索引。如果允许微信索引，微信会通过爬虫为小程序页面内容建立索引。当用户搜索关键词和页面的索引匹配成功时，小程序的页面将可能展示在搜索结果中。（<em>注：sitemap 的索引提示是默认开启的，如果需要关闭索引提示，可在peoject.config.json 的 setting 中配置字段 <strong>checkSiteMap</strong> 为 false</em>）</li><li>每个页面文件夹中的 <strong>.json</strong> 文件：</li></ol>]]></content>
     
     
+    <summary type="html">微信小程序结构</summary>
     
-    <category term="java笔记" scheme="https://www.mentaltest.run/categories/java%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="sql技术" scheme="https://www.mentaltest.run/tags/sql%E6%8A%80%E6%9C%AF/"/>
+    <category term="前端笔记" scheme="https://www.mentaltest.run/categories/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="微信小程序笔记" scheme="https://www.mentaltest.run/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -248,44 +269,23 @@
   </entry>
   
   <entry>
-    <title>微信小程序笔记（一）</title>
-    <link href="https://www.mentaltest.run/posts/a920c857.html"/>
-    <id>https://www.mentaltest.run/posts/a920c857.html</id>
+    <title>常用sql语句</title>
+    <link href="https://www.mentaltest.run/posts/6605dc2.html"/>
+    <id>https://www.mentaltest.run/posts/6605dc2.html</id>
     <published>2025-02-26T12:33:59.355Z</published>
-    <updated>2025-04-22T03:30:20.197Z</updated>
+    <updated>2025-04-22T03:31:07.476Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="一、项目结构">一、项目结构</h3><ol><li><strong>pages</strong>：用来存放所有小程序页面</li><li><strong>utils</strong>：用来存放工具性质的模块（例如：格式化时间的自定义模块）</li><li><strong>app.js</strong>：小程序项目的入口文件</li><li><strong>app.json</strong>：小程序项目的全局配置文件</li><li><strong>app.wxss</strong>：小程序项目的全局样式文件</li><li><strong>project.config.json</strong>：项目的配置文件</li><li><strong>sitemap.json</strong>：用来配置小程序及其页面是否允许被微信索引</li></ol><h3 id="二、小程序的页面组成部分">二、小程序的页面组成部分</h3><p>官方建议把所有小程序页面，都放在pages目录中，以单独文件夹存在，每个页面由4个基本文件组成：</p><ol><li><strong>.js</strong>文件（页面的脚本文件，存放页面的数据、事件处理函数等）</li><li><strong>.json</strong>文件（当前页面的配置文件，配置窗口的外观、表现等）</li><li><strong>.wxml</strong>文件（页面的模板结构文件）</li><li><strong>.wxss</strong>文件（当前页面的样式表文件）</li></ol><h3 id="三、小程序代码的构成-JSON配置文件">三、小程序代码的构成 - JSON配置文件</h3><p>JSON配置文件的作用：通过不同的**.json**配置文件，可以对小程序项目进行不同级别的配置</p><p>小程序中有4种JSON配置文件，分别为：</p><ol><li>项目根目录中的 <strong>app.json</strong> 配置文件：当前小程序的全局配置，包括了小程序的所有页面路径、窗口外观、界面表现、底部tab等,有以下几个主要配置项：<ol><li>pages: 用来记录当前小程序所有页面的路径</li><li>window：全局定义小程序所有页面的背景色、文字颜色等</li><li>style：全结定义小程序组件所使用的样式版本（默认v2）</li><li>sitemapLocation：用来指明 sitemap.json 的位置</li></ol></li><li>项目根目录中的 <strong>project.config.json</strong> 配置文件：项目配置文件，用来记录我们对小程序开发工具所做的个性化配置，例如：<ol><li>setting 中保存了编译相关的配置</li><li>projectname 中保存项目名称（可随意填写，不等于小程序名字）</li><li>appID 中保存小程序账号的ID（如果是在自己账号上运行别人的项目，记得把APPID改成自己的，否则容易报错）</li></ol></li><li>项目根目录中的 <strong>sitemap.json</strong> 配置文件：配置小程序页面是否允许微信索引。如果允许微信索引，微信会通过爬虫为小程序页面内容建立索引。当用户搜索关键词和页面的索引匹配成功时，小程序的页面将可能展示在搜索结果中。（<em>注：sitemap 的索引提示是默认开启的，如果需要关闭索引提示，可在peoject.config.json 的 setting 中配置字段 <strong>checkSiteMap</strong> 为 false</em>）</li><li>每个页面文件夹中的 <strong>.json</strong> 文件：</li></ol>]]></content>
-    
-    
-    <summary type="html">微信小程序结构</summary>
+    <content type="html"><![CDATA[<h5 id="展示所有数据库">展示所有数据库</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> databases</span><br></pre></td></tr></table></figure><h5 id="创建一个student-grade表">创建一个student_grade表</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE TABLE</span> student_grade(</span><br><span class="line">id <span class="type">int</span>,</span><br><span class="line">name <span class="type">VARCHAR</span>(<span class="number">20</span>),</span><br><span class="line">enligsh <span class="type">DECIMAL</span>(<span class="number">3</span>,<span class="number">1</span>),</span><br><span class="line">math <span class="type">DECIMAL</span>(<span class="number">3</span>,<span class="number">1</span>),</span><br><span class="line">chinese <span class="type">DECIMAL</span>(<span class="number">3</span>,<span class="number">1</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure><p><em>此处enligsh为故意写错，方便下面修改示范</em></p><h5 id="插入两个数据">插入两个数据</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT INTO</span> student_grade ( id, NAME, enligsh, math, chinese )</span><br><span class="line"><span class="keyword">VALUES</span></span><br><span class="line">(<span class="number">1</span>,<span class="string">&#x27;李狗蛋&#x27;</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>),</span><br><span class="line">(<span class="number">2</span>,<span class="string">&#x27;聪明的李某人&#x27;</span>,<span class="number">99</span>,<span class="number">99</span>,<span class="number">99</span>);</span><br></pre></td></tr></table></figure><h5 id="查看表结构">查看表结构</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">desc</span> student_grade</span><br></pre></td></tr></table></figure><p>此时发现enligsh拼写错误</p><h5 id="修改字段名">修改字段名</h5><p>参考例句：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER TABLE</span> 表名 CHANGE 旧字段名 新字段名 新数据类型;</span><br></pre></td></tr></table></figure><p>此处所用：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER TABLE</span> student_grade CHANGE enligsh  english <span class="type">DECIMAL</span>(<span class="number">3</span>,<span class="number">1</span>);</span><br></pre></td></tr></table></figure><p>这个方法也可以用来修改指定字段的数据类型，<em><strong>但是修改字段类型需要保证改后的数据类型能兼容之前的数据</strong></em>，例如此处我修改name的长度</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER TABLE</span> student_grade CHANGE name name <span class="type">VARCHAR</span>(<span class="number">100</span>);</span><br></pre></td></tr></table></figure>]]></content>
     
     
-    
-    <category term="前端笔记" scheme="https://www.mentaltest.run/categories/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="微信小程序笔记" scheme="https://www.mentaltest.run/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue自定义组件</title>
-    <link href="https://www.mentaltest.run/posts/ec24c4ee.html"/>
-    <id>https://www.mentaltest.run/posts/ec24c4ee.html</id>
-    <published>2025-02-26T12:33:59.354Z</published>
-    <updated>2025-04-22T03:33:24.080Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>组件<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 1.自定义标签 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">L5501</span>&gt;</span><span class="tag">&lt;/<span class="name">L5501</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 2.自定义标签绑定固定值 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">jumparading</span> <span class="attr">num</span>=<span class="string">&quot;二&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">jumparading</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 3.自定义标签绑定变量 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">hunter</span> <span class="attr">v-bind:three</span>=<span class="string">&quot;number&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">hunter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// 1.自定义标签</span></span></span><br><span class="line"><span class="language-javascript"><span class="title class_">Vue</span>.<span class="title function_">component</span>(<span class="string">&#x27;L5501&#x27;</span>,&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">template</span>: <span class="string">&#x27;&lt;h1&gt; 这是第一个组件 &lt;h1&gt;&#x27;</span></span></span><br><span class="line"><span class="language-javascript">&#125;)</span></span><br><span class="line"><span class="language-javascript"><span class="comment">// 2.自定义标签绑定固定值</span></span></span><br><span class="line"><span class="language-javascript"><span class="title class_">Vue</span>.<span class="title function_">component</span>(<span class="string">&#x27;jumparading&#x27;</span>,&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">props</span>: [<span class="string">&#x27;num&#x27;</span>],</span></span><br><span class="line"><span class="language-javascript"><span class="attr">template</span>: <span class="string">&#x27;&lt;h2&gt; 这是第&#123;&#123;num&#125;&#125;个组件 &lt;h2&gt;&#x27;</span></span></span><br><span class="line"><span class="language-javascript">&#125;)</span></span><br><span class="line"><span class="language-javascript"><span class="comment">// 3.自定义标签绑定变量</span></span></span><br><span class="line"><span class="language-javascript"><span class="title class_">Vue</span>.<span class="title function_">component</span>(<span class="string">&#x27;hunter&#x27;</span>,&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">props</span>: [<span class="string">&#x27;three&#x27;</span>],</span></span><br><span class="line"><span class="language-javascript"><span class="attr">template</span>: <span class="string">&#x27;&lt;h2&gt; 这是第&#123;&#123;three&#125;&#125;个组件 &lt;h2&gt;&#x27;</span></span></span><br><span class="line"><span class="language-javascript">&#125;)</span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> app = <span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">el</span>: <span class="string">&#x27;#app&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript"><span class="attr">data</span>:&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">number</span>:<span class="string">&#x27;三&#x27;</span></span></span><br><span class="line"><span class="language-javascript">&#125;,</span></span><br><span class="line"><span class="language-javascript">&#125;)</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-    <summary type="html">vue自定义组件</summary>
+    <summary type="html">经常会用到，但是经常忘记的sql语句</summary>
     
     
     
-    <category term="前端笔记" scheme="https://www.mentaltest.run/categories/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0/"/>
+    <category term="java笔记" scheme="https://www.mentaltest.run/categories/java%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="vue笔记" scheme="https://www.mentaltest.run/tags/vue%E7%AC%94%E8%AE%B0/"/>
+    <category term="sql技术" scheme="https://www.mentaltest.run/tags/sql%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
@@ -321,6 +321,27 @@
     
     
     <summary type="html">vue实例</summary>
+    
+    
+    
+    <category term="前端笔记" scheme="https://www.mentaltest.run/categories/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="vue笔记" scheme="https://www.mentaltest.run/tags/vue%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vue自定义组件</title>
+    <link href="https://www.mentaltest.run/posts/ec24c4ee.html"/>
+    <id>https://www.mentaltest.run/posts/ec24c4ee.html</id>
+    <published>2025-02-26T12:33:59.354Z</published>
+    <updated>2025-04-22T03:33:24.080Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>组件<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 1.自定义标签 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">L5501</span>&gt;</span><span class="tag">&lt;/<span class="name">L5501</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 2.自定义标签绑定固定值 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">jumparading</span> <span class="attr">num</span>=<span class="string">&quot;二&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">jumparading</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 3.自定义标签绑定变量 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">hunter</span> <span class="attr">v-bind:three</span>=<span class="string">&quot;number&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">hunter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// 1.自定义标签</span></span></span><br><span class="line"><span class="language-javascript"><span class="title class_">Vue</span>.<span class="title function_">component</span>(<span class="string">&#x27;L5501&#x27;</span>,&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">template</span>: <span class="string">&#x27;&lt;h1&gt; 这是第一个组件 &lt;h1&gt;&#x27;</span></span></span><br><span class="line"><span class="language-javascript">&#125;)</span></span><br><span class="line"><span class="language-javascript"><span class="comment">// 2.自定义标签绑定固定值</span></span></span><br><span class="line"><span class="language-javascript"><span class="title class_">Vue</span>.<span class="title function_">component</span>(<span class="string">&#x27;jumparading&#x27;</span>,&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">props</span>: [<span class="string">&#x27;num&#x27;</span>],</span></span><br><span class="line"><span class="language-javascript"><span class="attr">template</span>: <span class="string">&#x27;&lt;h2&gt; 这是第&#123;&#123;num&#125;&#125;个组件 &lt;h2&gt;&#x27;</span></span></span><br><span class="line"><span class="language-javascript">&#125;)</span></span><br><span class="line"><span class="language-javascript"><span class="comment">// 3.自定义标签绑定变量</span></span></span><br><span class="line"><span class="language-javascript"><span class="title class_">Vue</span>.<span class="title function_">component</span>(<span class="string">&#x27;hunter&#x27;</span>,&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">props</span>: [<span class="string">&#x27;three&#x27;</span>],</span></span><br><span class="line"><span class="language-javascript"><span class="attr">template</span>: <span class="string">&#x27;&lt;h2&gt; 这是第&#123;&#123;three&#125;&#125;个组件 &lt;h2&gt;&#x27;</span></span></span><br><span class="line"><span class="language-javascript">&#125;)</span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> app = <span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">el</span>: <span class="string">&#x27;#app&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript"><span class="attr">data</span>:&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">number</span>:<span class="string">&#x27;三&#x27;</span></span></span><br><span class="line"><span class="language-javascript">&#125;,</span></span><br><span class="line"><span class="language-javascript">&#125;)</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">vue自定义组件</summary>
     
     
     
@@ -391,27 +412,6 @@
     
     
     <category term="knife4j" scheme="https://www.mentaltest.run/tags/knife4j/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ssm构建笔记</title>
-    <link href="https://www.mentaltest.run/posts/739cd8bb.html"/>
-    <id>https://www.mentaltest.run/posts/739cd8bb.html</id>
-    <published>2025-02-26T12:33:59.353Z</published>
-    <updated>2025-04-22T03:34:03.257Z</updated>
-    
-    <content type="html"><![CDATA[<h1>ssm笔记</h1><h3 id="原始版构建方式">原始版构建方式</h3><ol><li><p>alt+insert添加依赖，引入spring-webmvc依赖</p></li><li><p>open moudle setting 配置web中的web Resource Directories路径和Deployment Descriptos路径</p></li><li><p>创建任意controller</p></li><li><p>于resources文件夹中创建applicationContext.xml和spring-servlet.xml</p></li><li><p>applicationContext.xml配置，先配置需要扫描的包</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="attr">xmlns:context</span>=<span class="string">&quot;http://www.springframework.org/schema/c&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- base-package 表示要扫描的包；use-default-filters表示使用默认的过滤器，true表示全扫--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">&quot;org.ll&quot;</span> <span class="attr">use-default-filters</span>=<span class="string">&quot;true&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--除去controller，其他的都扫--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">context:exclude-filter</span> <span class="attr">type</span>=<span class="string">&quot;annotation&quot;</span> <span class="attr">experssion</span>=<span class="string">&quot;org.springframework.stereotype.Controller&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--下面可配mybatis--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure></li><li><p>spring-servlet.xml的配置</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="attr">xmlns:context</span>=<span class="string">&quot;http://www.springframework.org/schema/c&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:mvc</span>=<span class="string">&quot;http://www.springframework.org/schema/mvc&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--不使用默认的过滤器，需要指定扫描的包--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">&quot;org.ll&quot;</span> <span class="attr">user-default-filters</span>=<span class="string">&quot;false&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--包括哪个，即指定哪个包--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">context:include-filter</span> <span class="attr">type</span>=<span class="string">&quot;annotation&quot;</span> <span class="attr">expression</span>=<span class="string">&quot;org.springframework.stereotype.Controller&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">mvc:annotation-driven</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--视图解析器等在下面配--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure></li><li><p>web.xml文件配置</p></li></ol><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">version</span>=<span class="string">&quot;4.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--加载spring的配置文件--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">context-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:applicationContext.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">listener</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">listener-class</span>&gt;</span>org.springframework.web.context.ContextLoaderListener<span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">listener</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--spring mvc的配置文件--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springmvc<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:spring-servlet.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springmvc<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-    <summary type="html">ssm构建笔记</summary>
-    
-    
-    
-    <category term="java笔记" scheme="https://www.mentaltest.run/categories/java%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="java基础" scheme="https://www.mentaltest.run/tags/java%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   

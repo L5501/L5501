@@ -6,7 +6,7 @@
   <link href="https://www.mentaltest.run/atom.xml" rel="self"/>
   
   <link href="https://www.mentaltest.run/"/>
-  <updated>2025-05-13T15:28:54.452Z</updated>
+  <updated>2025-05-13T15:32:17.884Z</updated>
   <id>https://www.mentaltest.run/</id>
   
   <author>
@@ -20,8 +20,8 @@
     <title>分布式事务常见的实现方式</title>
     <link href="https://www.mentaltest.run/posts/9505da30.html"/>
     <id>https://www.mentaltest.run/posts/9505da30.html</id>
-    <published>2025-05-13T15:29:17.623Z</published>
-    <updated>2025-05-13T15:28:54.452Z</updated>
+    <published>2025-05-13T15:32:17.884Z</published>
+    <updated>2025-05-13T15:32:17.884Z</updated>
     
     <content type="html"><![CDATA[<h1>分布式事务常见的实现方式</h1><h3 id="两阶段提交协议（2PC，-Two-Phase-Commit）">两阶段提交协议（2PC， Two-Phase Commit）</h3><p>两阶段提交协议是最经典的分布式事务协议，主要分为两个阶段：</p><p><strong>准备阶段（Prepare Phase）</strong>：协调者向所有参与者发送准备请求，参与者执行事务并记录日志，但不提交。参与者将执行结果（准备成功或失败）返回给协调者。</p><p><strong>提交阶段（Commit Phase）</strong>：如果所有参与者都准备成功，协调者发送提交请求，参与者提交事务；如果有任何参与者准备失败，协调者发送回滚请求，所有参与者回滚事务。</p><p>2PC的优点是实现简单且具有强一致性，缺点是存在协调者单点故障问题，在准备阶段完成后，若协调者宕机，会导致参与者永久阻塞。且在网络分区或节点故障时可能会导致参与者长时间锁定资源。</p><h3 id="三阶段提交协议（3PC，Three-Phase-Commit）">三阶段提交协议（3PC，Three-Phase Commit）</h3><p>三阶段提交协议是对两阶段提交协议的改进，增加了一个“预提交”阶段，减少了系统阻塞时间：</p><p><strong>准备阶段（Prepare Phase）</strong>：与2PC相同，协调者向参与者发送准备请求。</p><p><strong>预提交阶段（Pre-Commit Phase）</strong>：协调者发送预提交请求，参与者收到后可以立即回复并等待最终决定。</p><p><strong>提交阶段（Commit Phase）</strong>：协调者根据所有参与者的回应，决定提交或回滚。</p><p>3PC的优点是减少了阻塞时间，但实现较为复杂。</p><h3 id="基于消息队列的最终一致性">基于消息队列的最终一致性</h3><p>这种方式通过使用消息队列和补偿机制来实现最终一致性：</p><p><strong>事务消息</strong>：在事务操作的每一步都通过消息队列通知其他服务，确保消息的可靠传递。</p><p><strong>补偿机制</strong>：如果某一步操作失败，通过补偿机制撤销之前的操作，保证系统最终一致。</p><p>这种方式的优点是实现简单，且适用于许多实际场景，但缺点是需要设计补偿逻辑，需要消息队列支持事务消息（如RocketMQ的Half Message机制），消费者端必须实现幂等处理，可能会增加系统复杂度，且可能引入消息积压、消费延迟等问题。</p><h3 id="Saga模式">Saga模式</h3><p>Saga模式将长事务拆分为一系列短事务，每个短事务完成后触发下一个事务，失败时执行补偿操作：</p><p><strong>顺序执行</strong>：每个子事务顺序执行，如果其中某个子事务失败，执行相应的补偿事务。</p><p><strong>并行执行</strong>：多个子事务可以并行执行，所有子事务成功后事务才算成功，如果某个子事务失败，执行相应的补偿事务。</p><p>Saga模式的优点是避免了长时间锁定资源，缺点是需要设计每个子事务的补偿逻辑。</p><h3 id="TCC（Try-Confirm-Cancel）模式">TCC（Try-Confirm-Cancel）模式</h3><p>TCC模式将每个业务操作分为三个步骤：尝试（Try）、确认（Confirm）和取消（Cancel）：</p><p><strong>Try</strong>：尝试执行业务操作，预留必要的资源。</p><p><strong>Confirm</strong>：确认执行业务操作，真正提交事务。</p><p><strong>Cancel</strong>：取消业务操作，释放预留的资源。</p><p>TCC模式的优点是灵活性高，但实现复杂，需要设计每个步骤的逻辑，Confirm/Cancel操作必须实现幂等性，需要业务代码显式实现三阶段逻辑，侵入性较强，适合资金类等需要严格资源控制的场景。</p><h3 id="基于数据库的分布式事务">基于数据库的分布式事务</h3><p>一些现代数据库（如Google Spanner、CockroachDB等）提供了内置的分布式事务支持：</p><p><strong>分布式锁</strong>：利用数据库的分布式锁机制，确保多个节点之间的事务一致性。</p><p><strong>多版本并发控制（MVCC）</strong>：通过多版本并发控制实现高效的事务处理。</p><p>这种方式的优点是开发简单，缺点是依赖于特定数据库的实现。</p>]]></content>
     
@@ -42,7 +42,7 @@
     <link href="https://www.mentaltest.run/posts/444770d.html"/>
     <id>https://www.mentaltest.run/posts/444770d.html</id>
     <published>2025-05-07T15:36:07.469Z</published>
-    <updated>2025-05-08T02:00:28.779Z</updated>
+    <updated>2025-05-13T15:32:58.265Z</updated>
     
     <content type="html"><![CDATA[<h2 id="什么是分布式事务">什么是分布式事务</h2><p>分布式事务是指在分布式系统中，涉及多个独立的数据库或者服务的事务操作。分布式事务确保所有参与的数据库或服务要么全部成功提交，要么全部回滚，保证数据的一致性。但因为需要协调多个独立系统的状态，分布式事务的实现和管理比单一数据库的事务要复杂得多。</p><h3 id="分布式事务的关键概念">分布式事务的关键概念</h3><ol><li><strong>原子性（Atomicity）</strong>：事务中的所有操作要么全部完成，要么全部回滚。</li><li><strong>一致性（Consistency）</strong>：事务完成后，系统状态必须保持一致（参与系统的数据必须满足预定义的业务规则约束）。</li><li><strong>隔离性（Isolation）</strong>：并发事务相互隔离，互不干扰。</li><li><strong>持久性（Durability）</strong>：事务完成后，结果是永久性的。</li></ol><h3 id="分布式事务的实现方式">分布式事务的实现方式</h3><h4 id="1-两阶段提交协议（2PC）">1.两阶段提交协议（2PC）</h4><p>两阶段提交协议是实现分布式事务的一种常见方法。它包括两个阶段：</p><p><strong>准备阶段</strong>：协调者（Coordinator）向所有参与者（Participant）发送准备请求，参与者执行事务并记录日志，但不提交。</p><p><strong>提交阶段</strong>：如果所有参与者都准备成功，协调者发送提交请求，参与者提交事务；如果有仍和参与者准备失败，协调者发送回滚请求，所有参与者回滚事务。</p><h4 id="2-三阶段提交协议（3PC）">2. 三阶段提交协议（3PC）</h4><p>3PC通过引入超时机制和预提交阶段，降低2PC的阻塞风险：</p><ol><li><strong>询问阶段：</strong> 协调者询问参与者是否可以执行事务（不锁定资源）。</li><li><strong>预提交阶段：</strong> 若所有参与者响应“同意”，协调者发送预提交请求，参与者执行事务但不提交。</li><li><strong>提交阶段：</strong> 协调者根据参与者响应决定提交或回滚。</li></ol><h4 id="3-基于消息的最终一致性">3.基于消息的最终一致性</h4><p>在一些分布式系统中，使用消息队列和补偿机制来实现最终一致性。事务操作的每一步都通过消息队列通知其他服务，并在失败时执行补偿操作。</p><h3 id="分布式事务的问题">分布式事务的问题</h3><ol><li><strong>网络不可靠：</strong> 网络延迟、分区（Partition）和故障可能导致协调者与参与者失联，进而引发数据不一致。</li><li><strong>分布式系统的复杂性</strong>：协调多个独立系统的状态需要复杂的协议和机制。</li><li><strong>性能开销</strong>：分布式事务的协调和日志记录会带来额外的性能开销。</li></ol><h3 id="分布式事务的替代方案">分布式事务的替代方案</h3><ol><li><strong>事件驱动架构</strong>：使用事件驱动的方式处理跨服务的操作，通过时间通知和补偿机制实现最终一致性</li><li><strong>幂等性</strong>：设计幂等的操作，使每个重复操作不会导致不一致。</li><li><strong>Saga模式：</strong> 将长事务拆分为一系列短事务，每个短事务后触发下一个事务，如果失败，则执行补偿操作</li></ol>]]></content>
     
@@ -227,6 +227,27 @@
   </entry>
   
   <entry>
+    <title>常用sql语句</title>
+    <link href="https://www.mentaltest.run/posts/6605dc2.html"/>
+    <id>https://www.mentaltest.run/posts/6605dc2.html</id>
+    <published>2025-02-26T12:33:59.355Z</published>
+    <updated>2025-04-22T03:31:07.476Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="展示所有数据库">展示所有数据库</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> databases</span><br></pre></td></tr></table></figure><h5 id="创建一个student-grade表">创建一个student_grade表</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE TABLE</span> student_grade(</span><br><span class="line">id <span class="type">int</span>,</span><br><span class="line">name <span class="type">VARCHAR</span>(<span class="number">20</span>),</span><br><span class="line">enligsh <span class="type">DECIMAL</span>(<span class="number">3</span>,<span class="number">1</span>),</span><br><span class="line">math <span class="type">DECIMAL</span>(<span class="number">3</span>,<span class="number">1</span>),</span><br><span class="line">chinese <span class="type">DECIMAL</span>(<span class="number">3</span>,<span class="number">1</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure><p><em>此处enligsh为故意写错，方便下面修改示范</em></p><h5 id="插入两个数据">插入两个数据</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT INTO</span> student_grade ( id, NAME, enligsh, math, chinese )</span><br><span class="line"><span class="keyword">VALUES</span></span><br><span class="line">(<span class="number">1</span>,<span class="string">&#x27;李狗蛋&#x27;</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>),</span><br><span class="line">(<span class="number">2</span>,<span class="string">&#x27;聪明的李某人&#x27;</span>,<span class="number">99</span>,<span class="number">99</span>,<span class="number">99</span>);</span><br></pre></td></tr></table></figure><h5 id="查看表结构">查看表结构</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">desc</span> student_grade</span><br></pre></td></tr></table></figure><p>此时发现enligsh拼写错误</p><h5 id="修改字段名">修改字段名</h5><p>参考例句：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER TABLE</span> 表名 CHANGE 旧字段名 新字段名 新数据类型;</span><br></pre></td></tr></table></figure><p>此处所用：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER TABLE</span> student_grade CHANGE enligsh  english <span class="type">DECIMAL</span>(<span class="number">3</span>,<span class="number">1</span>);</span><br></pre></td></tr></table></figure><p>这个方法也可以用来修改指定字段的数据类型，<em><strong>但是修改字段类型需要保证改后的数据类型能兼容之前的数据</strong></em>，例如此处我修改name的长度</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER TABLE</span> student_grade CHANGE name name <span class="type">VARCHAR</span>(<span class="number">100</span>);</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">经常会用到，但是经常忘记的sql语句</summary>
+    
+    
+    
+    <category term="java笔记" scheme="https://www.mentaltest.run/categories/java%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="sql技术" scheme="https://www.mentaltest.run/tags/sql%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
     <title>微信小程序笔记（一）</title>
     <link href="https://www.mentaltest.run/posts/a920c857.html"/>
     <id>https://www.mentaltest.run/posts/a920c857.html</id>
@@ -265,27 +286,6 @@
     
     
     <category term="java面试题" scheme="https://www.mentaltest.run/tags/java%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>常用sql语句</title>
-    <link href="https://www.mentaltest.run/posts/6605dc2.html"/>
-    <id>https://www.mentaltest.run/posts/6605dc2.html</id>
-    <published>2025-02-26T12:33:59.355Z</published>
-    <updated>2025-04-22T03:31:07.476Z</updated>
-    
-    <content type="html"><![CDATA[<h5 id="展示所有数据库">展示所有数据库</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> databases</span><br></pre></td></tr></table></figure><h5 id="创建一个student-grade表">创建一个student_grade表</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE TABLE</span> student_grade(</span><br><span class="line">id <span class="type">int</span>,</span><br><span class="line">name <span class="type">VARCHAR</span>(<span class="number">20</span>),</span><br><span class="line">enligsh <span class="type">DECIMAL</span>(<span class="number">3</span>,<span class="number">1</span>),</span><br><span class="line">math <span class="type">DECIMAL</span>(<span class="number">3</span>,<span class="number">1</span>),</span><br><span class="line">chinese <span class="type">DECIMAL</span>(<span class="number">3</span>,<span class="number">1</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure><p><em>此处enligsh为故意写错，方便下面修改示范</em></p><h5 id="插入两个数据">插入两个数据</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT INTO</span> student_grade ( id, NAME, enligsh, math, chinese )</span><br><span class="line"><span class="keyword">VALUES</span></span><br><span class="line">(<span class="number">1</span>,<span class="string">&#x27;李狗蛋&#x27;</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>),</span><br><span class="line">(<span class="number">2</span>,<span class="string">&#x27;聪明的李某人&#x27;</span>,<span class="number">99</span>,<span class="number">99</span>,<span class="number">99</span>);</span><br></pre></td></tr></table></figure><h5 id="查看表结构">查看表结构</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">desc</span> student_grade</span><br></pre></td></tr></table></figure><p>此时发现enligsh拼写错误</p><h5 id="修改字段名">修改字段名</h5><p>参考例句：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER TABLE</span> 表名 CHANGE 旧字段名 新字段名 新数据类型;</span><br></pre></td></tr></table></figure><p>此处所用：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER TABLE</span> student_grade CHANGE enligsh  english <span class="type">DECIMAL</span>(<span class="number">3</span>,<span class="number">1</span>);</span><br></pre></td></tr></table></figure><p>这个方法也可以用来修改指定字段的数据类型，<em><strong>但是修改字段类型需要保证改后的数据类型能兼容之前的数据</strong></em>，例如此处我修改name的长度</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER TABLE</span> student_grade CHANGE name name <span class="type">VARCHAR</span>(<span class="number">100</span>);</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-    <summary type="html">经常会用到，但是经常忘记的sql语句</summary>
-    
-    
-    
-    <category term="java笔记" scheme="https://www.mentaltest.run/categories/java%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="sql技术" scheme="https://www.mentaltest.run/tags/sql%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   

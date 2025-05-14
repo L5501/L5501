@@ -229,56 +229,6 @@
     
     
     <entry>
-      <title>如何处理亿级用户的登录状态查询</title>
-      <link href="/posts/41763455.html"/>
-      <url>/posts/41763455.html</url>
-      
-        <content type="html"><![CDATA[<h2 id="假如系统需要统计一个上亿级别的的用户在线状态">假如系统需要统计一个上亿级别的的用户在线状态</h2><h3 id="方案一：">方案一：</h3><p>在数据库的基础上增加一个缓存，然后把登录状态存到redis里，在redis中去定义set类型的key，主要用来存储记录登录用户的ID。现在我们假设这个key叫login_user，如果用户登录，就往login_user中增加这个用户的id，如果用户登出就把这个key从set中删去，然后再用scard命令来统计set中的用户id的数量。</p><p>（但是这个方法对内存的消耗会有点大）</p><h3 id="方案二：">方案二：</h3><p>使用redis的bitmap来存储数据，bitmap本身就是为了亿级数据而诞生的，可以使用他的几个命令，如setbit、getbit和bigcount，用户登录可以用setbit命令去设置一个key为login_status的内容，然后将用户id作为一个位移值，将这个值设为1，即状态为1，那么当用户登出的时候，我们可以使用setbit命令将其状态改为0，如果是判断某个用户是否在线，可以使用getbit命令，如果是统计登录用户数量，可以使用bigcount来进行统计</p><p>（此方法优点是快，去重查重效率高，缺点是bitmap的位移值只能是数字，用户id也只能是自增的纯数字id，不适合分布式架构）</p><h2 id="如果是实现热力地图">如果是实现热力地图</h2><p>则可以使用redis的GEO，使用geoadd、geopos和geohash这些命令</p><p>当然，现在使用es的GEO更省事，如果加上ELK组合，则可以直接生成</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> java笔记 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 情景问题 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>常用sql语句</title>
-      <link href="/posts/6605dc2.html"/>
-      <url>/posts/6605dc2.html</url>
-      
-        <content type="html"><![CDATA[<h5 id="展示所有数据库">展示所有数据库</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> databases</span><br></pre></td></tr></table></figure><h5 id="创建一个student-grade表">创建一个student_grade表</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE TABLE</span> student_grade(</span><br><span class="line">id <span class="type">int</span>,</span><br><span class="line">name <span class="type">VARCHAR</span>(<span class="number">20</span>),</span><br><span class="line">enligsh <span class="type">DECIMAL</span>(<span class="number">3</span>,<span class="number">1</span>),</span><br><span class="line">math <span class="type">DECIMAL</span>(<span class="number">3</span>,<span class="number">1</span>),</span><br><span class="line">chinese <span class="type">DECIMAL</span>(<span class="number">3</span>,<span class="number">1</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure><p><em>此处enligsh为故意写错，方便下面修改示范</em></p><h5 id="插入两个数据">插入两个数据</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT INTO</span> student_grade ( id, NAME, enligsh, math, chinese )</span><br><span class="line"><span class="keyword">VALUES</span></span><br><span class="line">(<span class="number">1</span>,<span class="string">&#x27;李狗蛋&#x27;</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>),</span><br><span class="line">(<span class="number">2</span>,<span class="string">&#x27;聪明的李某人&#x27;</span>,<span class="number">99</span>,<span class="number">99</span>,<span class="number">99</span>);</span><br></pre></td></tr></table></figure><h5 id="查看表结构">查看表结构</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">desc</span> student_grade</span><br></pre></td></tr></table></figure><p>此时发现enligsh拼写错误</p><h5 id="修改字段名">修改字段名</h5><p>参考例句：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER TABLE</span> 表名 CHANGE 旧字段名 新字段名 新数据类型;</span><br></pre></td></tr></table></figure><p>此处所用：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER TABLE</span> student_grade CHANGE enligsh  english <span class="type">DECIMAL</span>(<span class="number">3</span>,<span class="number">1</span>);</span><br></pre></td></tr></table></figure><p>这个方法也可以用来修改指定字段的数据类型，<em><strong>但是修改字段类型需要保证改后的数据类型能兼容之前的数据</strong></em>，例如此处我修改name的长度</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER TABLE</span> student_grade CHANGE name name <span class="type">VARCHAR</span>(<span class="number">100</span>);</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> java笔记 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> sql技术 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>微信小程序笔记（一）</title>
       <link href="/posts/a920c857.html"/>
       <url>/posts/a920c857.html</url>
@@ -304,6 +254,31 @@
     
     
     <entry>
+      <title>如何处理亿级用户的登录状态查询</title>
+      <link href="/posts/41763455.html"/>
+      <url>/posts/41763455.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="假如系统需要统计一个上亿级别的的用户在线状态">假如系统需要统计一个上亿级别的的用户在线状态</h2><h3 id="方案一：">方案一：</h3><p>在数据库的基础上增加一个缓存，然后把登录状态存到redis里，在redis中去定义set类型的key，主要用来存储记录登录用户的ID。现在我们假设这个key叫login_user，如果用户登录，就往login_user中增加这个用户的id，如果用户登出就把这个key从set中删去，然后再用scard命令来统计set中的用户id的数量。</p><p>（但是这个方法对内存的消耗会有点大）</p><h3 id="方案二：">方案二：</h3><p>使用redis的bitmap来存储数据，bitmap本身就是为了亿级数据而诞生的，可以使用他的几个命令，如setbit、getbit和bigcount，用户登录可以用setbit命令去设置一个key为login_status的内容，然后将用户id作为一个位移值，将这个值设为1，即状态为1，那么当用户登出的时候，我们可以使用setbit命令将其状态改为0，如果是判断某个用户是否在线，可以使用getbit命令，如果是统计登录用户数量，可以使用bigcount来进行统计</p><p>（此方法优点是快，去重查重效率高，缺点是bitmap的位移值只能是数字，用户id也只能是自增的纯数字id，不适合分布式架构）</p><h2 id="如果是实现热力地图">如果是实现热力地图</h2><p>则可以使用redis的GEO，使用geoadd、geopos和geohash这些命令</p><p>当然，现在使用es的GEO更省事，如果加上ELK组合，则可以直接生成</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> java笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 情景问题 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>微服务面试题</title>
       <link href="/posts/d2849c17.html"/>
       <url>/posts/d2849c17.html</url>
@@ -321,6 +296,31 @@
         <tags>
             
             <tag> java面试题 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>常用sql语句</title>
+      <link href="/posts/6605dc2.html"/>
+      <url>/posts/6605dc2.html</url>
+      
+        <content type="html"><![CDATA[<h5 id="展示所有数据库">展示所有数据库</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> databases</span><br></pre></td></tr></table></figure><h5 id="创建一个student-grade表">创建一个student_grade表</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE TABLE</span> student_grade(</span><br><span class="line">id <span class="type">int</span>,</span><br><span class="line">name <span class="type">VARCHAR</span>(<span class="number">20</span>),</span><br><span class="line">enligsh <span class="type">DECIMAL</span>(<span class="number">3</span>,<span class="number">1</span>),</span><br><span class="line">math <span class="type">DECIMAL</span>(<span class="number">3</span>,<span class="number">1</span>),</span><br><span class="line">chinese <span class="type">DECIMAL</span>(<span class="number">3</span>,<span class="number">1</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure><p><em>此处enligsh为故意写错，方便下面修改示范</em></p><h5 id="插入两个数据">插入两个数据</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT INTO</span> student_grade ( id, NAME, enligsh, math, chinese )</span><br><span class="line"><span class="keyword">VALUES</span></span><br><span class="line">(<span class="number">1</span>,<span class="string">&#x27;李狗蛋&#x27;</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>),</span><br><span class="line">(<span class="number">2</span>,<span class="string">&#x27;聪明的李某人&#x27;</span>,<span class="number">99</span>,<span class="number">99</span>,<span class="number">99</span>);</span><br></pre></td></tr></table></figure><h5 id="查看表结构">查看表结构</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">desc</span> student_grade</span><br></pre></td></tr></table></figure><p>此时发现enligsh拼写错误</p><h5 id="修改字段名">修改字段名</h5><p>参考例句：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER TABLE</span> 表名 CHANGE 旧字段名 新字段名 新数据类型;</span><br></pre></td></tr></table></figure><p>此处所用：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER TABLE</span> student_grade CHANGE enligsh  english <span class="type">DECIMAL</span>(<span class="number">3</span>,<span class="number">1</span>);</span><br></pre></td></tr></table></figure><p>这个方法也可以用来修改指定字段的数据类型，<em><strong>但是修改字段类型需要保证改后的数据类型能兼容之前的数据</strong></em>，例如此处我修改name的长度</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER TABLE</span> student_grade CHANGE name name <span class="type">VARCHAR</span>(<span class="number">100</span>);</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> java笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> sql技术 </tag>
             
         </tags>
       
@@ -579,31 +579,6 @@
     
     
     <entry>
-      <title>SpringBootApplication 注解</title>
-      <link href="/posts/37d6ff2e.html"/>
-      <url>/posts/37d6ff2e.html</url>
-      
-        <content type="html"><![CDATA[<h2 id="SpringBootApplication-注解">@SpringBootApplication 注解</h2><p>@SpringBootApplication是一个组合注解，主要由@SpringBootConfiguration、@EnableAutoConfiguration和@ComponentScan组成</p><h3 id="SpringBootConfiguration详解">@SpringBootConfiguration详解</h3><p>@SpringBootConfiguration实际上就是@Configuration，功能上没有太大区别</p><h4 id="Configuration-注解">@Configuration 注解</h4><p>表示该类为配置类，在里面注入Bean</p><h5 id="Configuration和-Component-的区别">@Configuration和@Component 的区别</h5><ol><li>spring容器在启动时会默认加载一些后置处理器，其中有个处理器就叫ConfigurationClassPostProcessor，这个处理器会专门处理带有@Configuration注解的类。它会将所有带有@Conguration的类存进指定容器，然后通过cglib代理进行增强，对于已经被创建的对象不会进行重新创建。而@Component则没有被代理，会重复创建对象。</li></ol><h3 id="EnableAutoConfiguration注解">@EnableAutoConfiguration注解</h3><p>开启自动化配置，主要依靠@Import和@AutoConfigurationPackage,实际上就是导入了两个配置类AutoConfigurationImportSelector和Registrar</p><h4 id="首先我们解析-import的作用：">首先我们解析@import的作用：</h4><p>在原生的spring framework中，组件装配经历了三个阶段：</p><ol><li><p>spring 2.5+开始，可以使用@component等注解来装配bean</p></li><li><p>spring 3.0+开始，使用@Configuration + @bean的方式</p></li><li><p>spring 3.1+ 开始，使用模块装配，比如@EnableXXX + @Import，下为演示</p><ol><li><p>首先创建一个实体类</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Apple</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>然后自定义一个注解</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Target(ElementType.TYPE)</span></span><br><span class="line"><span class="meta">@Import(&#123;Apple.class&#125;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> EnableFruit &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>在启动类中加入注解</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableFruit</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DemoApplication</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        SpringApplication.run(DemoApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>在测试类中进行测试</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DemoApplicationTests</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    Apple apple;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">contextLoads</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;apple = &quot;</span> + apple);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>如果在控制台看到下列结果，就可证明注入成功</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apple = com.example.demo.<span class="keyword">module</span>.Apple@75798d03</span><br></pre></td></tr></table></figure></li></ol></li></ol><h3 id="ComponentScan注解">@ComponentScan注解</h3><p>包扫描，<strong>默认情况下扫描的是当前这个类所在的包下面的所有类</strong>，所以建议放在根包下面，否则需要进行重新指定</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> java笔记 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> spring相关 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>anconda安装</title>
       <link href="/posts/bfafad47.html"/>
       <url>/posts/bfafad47.html</url>
@@ -629,31 +604,6 @@
     
     
     <entry>
-      <title>input利用正则表达式输入框输入内容转换和限制</title>
-      <link href="/posts/ef1d4915.html"/>
-      <url>/posts/ef1d4915.html</url>
-      
-        <content type="html"><![CDATA[<h3 id="让el-input只能输入数字">让el-input只能输入数字</h3><p>最近在做一个项目，业务小姐姐要求我们前端一个输入框只能输入数字，本来是一个很简单的事，丢个<strong>el-input-number</strong>完事。然而，业务小姐姐觉得计数器两端的按钮太丑🤨，好吧，那就换成<strong>el-input</strong>，给他type=number,企图蒙混过关，结果被发现要求再改🤪，饶了我这个后端吧，为什么这么大个公司招不到一个前端😵，所以最后想到了用正则表达式将数据过滤一遍，所以如下</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-input type=&quot;text&quot;</span><br><span class="line">   oninput=&quot;value=value.replace(/[^\d.]/g,&#x27;&#x27;)&quot;</span><br><span class="line">   v-model=&quot;form.payer&quot;</span><br><span class="line">   label=&quot;Please enter Payer&quot;</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure><p>type=“text”，然后<em>oninput</em>监听输入值，再通过<em>正则表达式</em>去掉所有非数字，这样就行了，不过还是能输入小数点，如果要求只能输入整数，则需要再改进，以后有空再想吧</p><h3 id="让el-input只能输入单词大写">让el-input只能输入单词大写</h3><p>奇奇怪怪的需求总是这么多😵，不过这里其实原理一样，都是利用正则表达式，具体如下：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-input</span><br><span class="line">  oninput=&quot;value=value.replace(/[a-z]/g, (match) =&gt; match.toUpperCase())&quot;</span><br><span class="line">  v-model=&quot;scope.row.repository&quot;</span><br><span class="line">  placeholder=&quot;请输入仓库&quot; </span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure><h3 id="只允许输入数字-整数：小数点不能输入">只允许输入数字(整数：小数点不能输入)</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">onkeyup</span>=<span class="string">&quot;value=value.replace(/[^\d]/g,&#x27;&#x27;)&quot;</span> &gt;</span> </span><br></pre></td></tr></table></figure><h3 id="允许输入小数-两位小数">允许输入小数(两位小数)</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">onkeyup</span>=<span class="string">&quot;value=value.replace(/^\D*(\d*(?:\.\d&#123;0,2&#125;)?).*$/g, &#x27;$1&#x27;)&quot;</span> &gt;</span> </span><br></pre></td></tr></table></figure><h3 id="允许输入小数-一位小数">允许输入小数(一位小数)</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">onkeyup</span>=<span class="string">&quot;value=value.replace(/^\D*(\d*(?:\.\d&#123;0,1&#125;)?).*$/g, &#x27;$1&#x27;)&quot;</span> &gt;</span> </span><br></pre></td></tr></table></figure><h3 id="开头不能为0，且不能输入小数">开头不能为0，且不能输入小数</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">onkeyup</span>=<span class="string">&quot;value=value.replace(/[^\d]/g,&#x27;&#x27;).replace(/^0&#123;1,&#125;/g,&#x27;&#x27;)&quot;</span> &gt;</span></span><br></pre></td></tr></table></figure><h3 id="不能输入中文和字母-例如：价格输入">不能输入中文和字母 例如：价格输入</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">value</span>=<span class="string">&quot;&quot;</span> <span class="attr">οnkeyup</span>=<span class="string">&quot;value=value.replace(/[\u4E00-\u9FA5]|[A-Za-z]/g,&#x27;&#x27;)&quot;</span> &gt;</span></span><br></pre></td></tr></table></figure><h4 id="element-UI中input输入框-强制输入数字-并限制输入长度">element UI中input输入框,强制输入数字,并限制输入长度</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-input v-model=&quot;item.userScore&quot; onkeyup=&quot;this.value=this.value.replace(/[^\d.]/g,&#x27;&#x27;);&quot;</span><br><span class="line">maxlength=&quot;4&quot;/&gt;</span><br></pre></td></tr></table></figure><p><strong>实现输入框只能输入正整数，输入同时禁止了以0开始的数字输入，防止被转化为其他进制的数值。</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&#x27;text&#x27;</span> <span class="attr">onkeyup</span>=<span class="string">&quot;value=value.replace(/^(0+)|[^\d]+/g,&#x27;&#x27;)&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure><h3 id="现在我碰到一种比较奇怪的需求，就是有群神经病，希望一个搜索框将文本复制进去，能够实现多项条件搜索😵">现在我碰到一种比较奇怪的需求，就是有群神经病，希望一个搜索框将文本复制进去，能够实现多项条件搜索😵</h3><p>这里我把空格转换成逗号，然后存到list中去处理</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-input v-model=&quot;testValue&quot; type=&quot;text&quot; @input=&quot;testValue = testValue.replace(/[\s\r\t]+/g, &#x27;,&#x27;)&quot;/&gt;</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端笔记 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 奇怪的需求 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>kali渗透测试android</title>
       <link href="/posts/1caf87fd.html"/>
       <url>/posts/1caf87fd.html</url>
@@ -671,6 +621,56 @@
         <tags>
             
             <tag> linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>SpringBootApplication 注解</title>
+      <link href="/posts/37d6ff2e.html"/>
+      <url>/posts/37d6ff2e.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="SpringBootApplication-注解">@SpringBootApplication 注解</h2><p>@SpringBootApplication是一个组合注解，主要由@SpringBootConfiguration、@EnableAutoConfiguration和@ComponentScan组成</p><h3 id="SpringBootConfiguration详解">@SpringBootConfiguration详解</h3><p>@SpringBootConfiguration实际上就是@Configuration，功能上没有太大区别</p><h4 id="Configuration-注解">@Configuration 注解</h4><p>表示该类为配置类，在里面注入Bean</p><h5 id="Configuration和-Component-的区别">@Configuration和@Component 的区别</h5><ol><li>spring容器在启动时会默认加载一些后置处理器，其中有个处理器就叫ConfigurationClassPostProcessor，这个处理器会专门处理带有@Configuration注解的类。它会将所有带有@Conguration的类存进指定容器，然后通过cglib代理进行增强，对于已经被创建的对象不会进行重新创建。而@Component则没有被代理，会重复创建对象。</li></ol><h3 id="EnableAutoConfiguration注解">@EnableAutoConfiguration注解</h3><p>开启自动化配置，主要依靠@Import和@AutoConfigurationPackage,实际上就是导入了两个配置类AutoConfigurationImportSelector和Registrar</p><h4 id="首先我们解析-import的作用：">首先我们解析@import的作用：</h4><p>在原生的spring framework中，组件装配经历了三个阶段：</p><ol><li><p>spring 2.5+开始，可以使用@component等注解来装配bean</p></li><li><p>spring 3.0+开始，使用@Configuration + @bean的方式</p></li><li><p>spring 3.1+ 开始，使用模块装配，比如@EnableXXX + @Import，下为演示</p><ol><li><p>首先创建一个实体类</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Apple</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>然后自定义一个注解</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Target(ElementType.TYPE)</span></span><br><span class="line"><span class="meta">@Import(&#123;Apple.class&#125;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> EnableFruit &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>在启动类中加入注解</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableFruit</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DemoApplication</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        SpringApplication.run(DemoApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>在测试类中进行测试</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DemoApplicationTests</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    Apple apple;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">contextLoads</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;apple = &quot;</span> + apple);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>如果在控制台看到下列结果，就可证明注入成功</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apple = com.example.demo.<span class="keyword">module</span>.Apple@75798d03</span><br></pre></td></tr></table></figure></li></ol></li></ol><h3 id="ComponentScan注解">@ComponentScan注解</h3><p>包扫描，<strong>默认情况下扫描的是当前这个类所在的包下面的所有类</strong>，所以建议放在根包下面，否则需要进行重新指定</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> java笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> spring相关 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>input利用正则表达式输入框输入内容转换和限制</title>
+      <link href="/posts/ef1d4915.html"/>
+      <url>/posts/ef1d4915.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="让el-input只能输入数字">让el-input只能输入数字</h3><p>最近在做一个项目，业务小姐姐要求我们前端一个输入框只能输入数字，本来是一个很简单的事，丢个<strong>el-input-number</strong>完事。然而，业务小姐姐觉得计数器两端的按钮太丑🤨，好吧，那就换成<strong>el-input</strong>，给他type=number,企图蒙混过关，结果被发现要求再改🤪，饶了我这个后端吧，为什么这么大个公司招不到一个前端😵，所以最后想到了用正则表达式将数据过滤一遍，所以如下</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-input type=&quot;text&quot;</span><br><span class="line">   oninput=&quot;value=value.replace(/[^\d.]/g,&#x27;&#x27;)&quot;</span><br><span class="line">   v-model=&quot;form.payer&quot;</span><br><span class="line">   label=&quot;Please enter Payer&quot;</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure><p>type=“text”，然后<em>oninput</em>监听输入值，再通过<em>正则表达式</em>去掉所有非数字，这样就行了，不过还是能输入小数点，如果要求只能输入整数，则需要再改进，以后有空再想吧</p><h3 id="让el-input只能输入单词大写">让el-input只能输入单词大写</h3><p>奇奇怪怪的需求总是这么多😵，不过这里其实原理一样，都是利用正则表达式，具体如下：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-input</span><br><span class="line">  oninput=&quot;value=value.replace(/[a-z]/g, (match) =&gt; match.toUpperCase())&quot;</span><br><span class="line">  v-model=&quot;scope.row.repository&quot;</span><br><span class="line">  placeholder=&quot;请输入仓库&quot; </span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure><h3 id="只允许输入数字-整数：小数点不能输入">只允许输入数字(整数：小数点不能输入)</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">onkeyup</span>=<span class="string">&quot;value=value.replace(/[^\d]/g,&#x27;&#x27;)&quot;</span> &gt;</span> </span><br></pre></td></tr></table></figure><h3 id="允许输入小数-两位小数">允许输入小数(两位小数)</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">onkeyup</span>=<span class="string">&quot;value=value.replace(/^\D*(\d*(?:\.\d&#123;0,2&#125;)?).*$/g, &#x27;$1&#x27;)&quot;</span> &gt;</span> </span><br></pre></td></tr></table></figure><h3 id="允许输入小数-一位小数">允许输入小数(一位小数)</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">onkeyup</span>=<span class="string">&quot;value=value.replace(/^\D*(\d*(?:\.\d&#123;0,1&#125;)?).*$/g, &#x27;$1&#x27;)&quot;</span> &gt;</span> </span><br></pre></td></tr></table></figure><h3 id="开头不能为0，且不能输入小数">开头不能为0，且不能输入小数</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">onkeyup</span>=<span class="string">&quot;value=value.replace(/[^\d]/g,&#x27;&#x27;).replace(/^0&#123;1,&#125;/g,&#x27;&#x27;)&quot;</span> &gt;</span></span><br></pre></td></tr></table></figure><h3 id="不能输入中文和字母-例如：价格输入">不能输入中文和字母 例如：价格输入</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">value</span>=<span class="string">&quot;&quot;</span> <span class="attr">οnkeyup</span>=<span class="string">&quot;value=value.replace(/[\u4E00-\u9FA5]|[A-Za-z]/g,&#x27;&#x27;)&quot;</span> &gt;</span></span><br></pre></td></tr></table></figure><h4 id="element-UI中input输入框-强制输入数字-并限制输入长度">element UI中input输入框,强制输入数字,并限制输入长度</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-input v-model=&quot;item.userScore&quot; onkeyup=&quot;this.value=this.value.replace(/[^\d.]/g,&#x27;&#x27;);&quot;</span><br><span class="line">maxlength=&quot;4&quot;/&gt;</span><br></pre></td></tr></table></figure><p><strong>实现输入框只能输入正整数，输入同时禁止了以0开始的数字输入，防止被转化为其他进制的数值。</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&#x27;text&#x27;</span> <span class="attr">onkeyup</span>=<span class="string">&quot;value=value.replace(/^(0+)|[^\d]+/g,&#x27;&#x27;)&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure><h3 id="现在我碰到一种比较奇怪的需求，就是有群神经病，希望一个搜索框将文本复制进去，能够实现多项条件搜索😵">现在我碰到一种比较奇怪的需求，就是有群神经病，希望一个搜索框将文本复制进去，能够实现多项条件搜索😵</h3><p>这里我把空格转换成逗号，然后存到list中去处理</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-input v-model=&quot;testValue&quot; type=&quot;text&quot; @input=&quot;testValue = testValue.replace(/[\s\r\t]+/g, &#x27;,&#x27;)&quot;/&gt;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 奇怪的需求 </tag>
             
         </tags>
       

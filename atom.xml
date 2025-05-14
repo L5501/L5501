@@ -6,7 +6,7 @@
   <link href="https://www.mentaltest.run/atom.xml" rel="self"/>
   
   <link href="https://www.mentaltest.run/"/>
-  <updated>2025-05-13T15:32:17.884Z</updated>
+  <updated>2025-05-14T00:38:20.757Z</updated>
   <id>https://www.mentaltest.run/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.mentaltest.run/posts/9505da30.html"/>
     <id>https://www.mentaltest.run/posts/9505da30.html</id>
     <published>2025-05-13T15:32:17.884Z</published>
-    <updated>2025-05-13T15:32:17.884Z</updated>
+    <updated>2025-05-14T00:38:20.757Z</updated>
     
     <content type="html"><![CDATA[<h1>分布式事务常见的实现方式</h1><h3 id="两阶段提交协议（2PC，-Two-Phase-Commit）">两阶段提交协议（2PC， Two-Phase Commit）</h3><p>两阶段提交协议是最经典的分布式事务协议，主要分为两个阶段：</p><p><strong>准备阶段（Prepare Phase）</strong>：协调者向所有参与者发送准备请求，参与者执行事务并记录日志，但不提交。参与者将执行结果（准备成功或失败）返回给协调者。</p><p><strong>提交阶段（Commit Phase）</strong>：如果所有参与者都准备成功，协调者发送提交请求，参与者提交事务；如果有任何参与者准备失败，协调者发送回滚请求，所有参与者回滚事务。</p><p>2PC的优点是实现简单且具有强一致性，缺点是存在协调者单点故障问题，在准备阶段完成后，若协调者宕机，会导致参与者永久阻塞。且在网络分区或节点故障时可能会导致参与者长时间锁定资源。</p><h3 id="三阶段提交协议（3PC，Three-Phase-Commit）">三阶段提交协议（3PC，Three-Phase Commit）</h3><p>三阶段提交协议是对两阶段提交协议的改进，增加了一个“预提交”阶段，减少了系统阻塞时间：</p><p><strong>准备阶段（Prepare Phase）</strong>：与2PC相同，协调者向参与者发送准备请求。</p><p><strong>预提交阶段（Pre-Commit Phase）</strong>：协调者发送预提交请求，参与者收到后可以立即回复并等待最终决定。</p><p><strong>提交阶段（Commit Phase）</strong>：协调者根据所有参与者的回应，决定提交或回滚。</p><p>3PC的优点是减少了阻塞时间，但实现较为复杂。</p><h3 id="基于消息队列的最终一致性">基于消息队列的最终一致性</h3><p>这种方式通过使用消息队列和补偿机制来实现最终一致性：</p><p><strong>事务消息</strong>：在事务操作的每一步都通过消息队列通知其他服务，确保消息的可靠传递。</p><p><strong>补偿机制</strong>：如果某一步操作失败，通过补偿机制撤销之前的操作，保证系统最终一致。</p><p>这种方式的优点是实现简单，且适用于许多实际场景，但缺点是需要设计补偿逻辑，需要消息队列支持事务消息（如RocketMQ的Half Message机制），消费者端必须实现幂等处理，可能会增加系统复杂度，且可能引入消息积压、消费延迟等问题。</p><h3 id="Saga模式">Saga模式</h3><p>Saga模式将长事务拆分为一系列短事务，每个短事务完成后触发下一个事务，失败时执行补偿操作：</p><p><strong>顺序执行</strong>：每个子事务顺序执行，如果其中某个子事务失败，执行相应的补偿事务。</p><p><strong>并行执行</strong>：多个子事务可以并行执行，所有子事务成功后事务才算成功，如果某个子事务失败，执行相应的补偿事务。</p><p>Saga模式的优点是避免了长时间锁定资源，缺点是需要设计每个子事务的补偿逻辑。</p><h3 id="TCC（Try-Confirm-Cancel）模式">TCC（Try-Confirm-Cancel）模式</h3><p>TCC模式将每个业务操作分为三个步骤：尝试（Try）、确认（Confirm）和取消（Cancel）：</p><p><strong>Try</strong>：尝试执行业务操作，预留必要的资源。</p><p><strong>Confirm</strong>：确认执行业务操作，真正提交事务。</p><p><strong>Cancel</strong>：取消业务操作，释放预留的资源。</p><p>TCC模式的优点是灵活性高，但实现复杂，需要设计每个步骤的逻辑，Confirm/Cancel操作必须实现幂等性，需要业务代码显式实现三阶段逻辑，侵入性较强，适合资金类等需要严格资源控制的场景。</p><h3 id="基于数据库的分布式事务">基于数据库的分布式事务</h3><p>一些现代数据库（如Google Spanner、CockroachDB等）提供了内置的分布式事务支持：</p><p><strong>分布式锁</strong>：利用数据库的分布式锁机制，确保多个节点之间的事务一致性。</p><p><strong>多版本并发控制（MVCC）</strong>：通过多版本并发控制实现高效的事务处理。</p><p>这种方式的优点是开发简单，缺点是依赖于特定数据库的实现。</p>]]></content>
     
@@ -206,48 +206,6 @@
   </entry>
   
   <entry>
-    <title>如何处理亿级用户的登录状态查询</title>
-    <link href="https://www.mentaltest.run/posts/41763455.html"/>
-    <id>https://www.mentaltest.run/posts/41763455.html</id>
-    <published>2025-02-26T12:33:59.355Z</published>
-    <updated>2025-05-08T01:54:46.484Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="假如系统需要统计一个上亿级别的的用户在线状态">假如系统需要统计一个上亿级别的的用户在线状态</h2><h3 id="方案一：">方案一：</h3><p>在数据库的基础上增加一个缓存，然后把登录状态存到redis里，在redis中去定义set类型的key，主要用来存储记录登录用户的ID。现在我们假设这个key叫login_user，如果用户登录，就往login_user中增加这个用户的id，如果用户登出就把这个key从set中删去，然后再用scard命令来统计set中的用户id的数量。</p><p>（但是这个方法对内存的消耗会有点大）</p><h3 id="方案二：">方案二：</h3><p>使用redis的bitmap来存储数据，bitmap本身就是为了亿级数据而诞生的，可以使用他的几个命令，如setbit、getbit和bigcount，用户登录可以用setbit命令去设置一个key为login_status的内容，然后将用户id作为一个位移值，将这个值设为1，即状态为1，那么当用户登出的时候，我们可以使用setbit命令将其状态改为0，如果是判断某个用户是否在线，可以使用getbit命令，如果是统计登录用户数量，可以使用bigcount来进行统计</p><p>（此方法优点是快，去重查重效率高，缺点是bitmap的位移值只能是数字，用户id也只能是自增的纯数字id，不适合分布式架构）</p><h2 id="如果是实现热力地图">如果是实现热力地图</h2><p>则可以使用redis的GEO，使用geoadd、geopos和geohash这些命令</p><p>当然，现在使用es的GEO更省事，如果加上ELK组合，则可以直接生成</p>]]></content>
-    
-    
-    <summary type="html">如何处理亿级用户的登录状态查询</summary>
-    
-    
-    
-    <category term="java笔记" scheme="https://www.mentaltest.run/categories/java%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="情景问题" scheme="https://www.mentaltest.run/tags/%E6%83%85%E6%99%AF%E9%97%AE%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>常用sql语句</title>
-    <link href="https://www.mentaltest.run/posts/6605dc2.html"/>
-    <id>https://www.mentaltest.run/posts/6605dc2.html</id>
-    <published>2025-02-26T12:33:59.355Z</published>
-    <updated>2025-04-22T03:31:07.476Z</updated>
-    
-    <content type="html"><![CDATA[<h5 id="展示所有数据库">展示所有数据库</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> databases</span><br></pre></td></tr></table></figure><h5 id="创建一个student-grade表">创建一个student_grade表</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE TABLE</span> student_grade(</span><br><span class="line">id <span class="type">int</span>,</span><br><span class="line">name <span class="type">VARCHAR</span>(<span class="number">20</span>),</span><br><span class="line">enligsh <span class="type">DECIMAL</span>(<span class="number">3</span>,<span class="number">1</span>),</span><br><span class="line">math <span class="type">DECIMAL</span>(<span class="number">3</span>,<span class="number">1</span>),</span><br><span class="line">chinese <span class="type">DECIMAL</span>(<span class="number">3</span>,<span class="number">1</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure><p><em>此处enligsh为故意写错，方便下面修改示范</em></p><h5 id="插入两个数据">插入两个数据</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT INTO</span> student_grade ( id, NAME, enligsh, math, chinese )</span><br><span class="line"><span class="keyword">VALUES</span></span><br><span class="line">(<span class="number">1</span>,<span class="string">&#x27;李狗蛋&#x27;</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>),</span><br><span class="line">(<span class="number">2</span>,<span class="string">&#x27;聪明的李某人&#x27;</span>,<span class="number">99</span>,<span class="number">99</span>,<span class="number">99</span>);</span><br></pre></td></tr></table></figure><h5 id="查看表结构">查看表结构</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">desc</span> student_grade</span><br></pre></td></tr></table></figure><p>此时发现enligsh拼写错误</p><h5 id="修改字段名">修改字段名</h5><p>参考例句：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER TABLE</span> 表名 CHANGE 旧字段名 新字段名 新数据类型;</span><br></pre></td></tr></table></figure><p>此处所用：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER TABLE</span> student_grade CHANGE enligsh  english <span class="type">DECIMAL</span>(<span class="number">3</span>,<span class="number">1</span>);</span><br></pre></td></tr></table></figure><p>这个方法也可以用来修改指定字段的数据类型，<em><strong>但是修改字段类型需要保证改后的数据类型能兼容之前的数据</strong></em>，例如此处我修改name的长度</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER TABLE</span> student_grade CHANGE name name <span class="type">VARCHAR</span>(<span class="number">100</span>);</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-    <summary type="html">经常会用到，但是经常忘记的sql语句</summary>
-    
-    
-    
-    <category term="java笔记" scheme="https://www.mentaltest.run/categories/java%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="sql技术" scheme="https://www.mentaltest.run/tags/sql%E6%8A%80%E6%9C%AF/"/>
-    
-  </entry>
-  
-  <entry>
     <title>微信小程序笔记（一）</title>
     <link href="https://www.mentaltest.run/posts/a920c857.html"/>
     <id>https://www.mentaltest.run/posts/a920c857.html</id>
@@ -269,6 +227,27 @@
   </entry>
   
   <entry>
+    <title>如何处理亿级用户的登录状态查询</title>
+    <link href="https://www.mentaltest.run/posts/41763455.html"/>
+    <id>https://www.mentaltest.run/posts/41763455.html</id>
+    <published>2025-02-26T12:33:59.355Z</published>
+    <updated>2025-05-08T01:54:46.484Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="假如系统需要统计一个上亿级别的的用户在线状态">假如系统需要统计一个上亿级别的的用户在线状态</h2><h3 id="方案一：">方案一：</h3><p>在数据库的基础上增加一个缓存，然后把登录状态存到redis里，在redis中去定义set类型的key，主要用来存储记录登录用户的ID。现在我们假设这个key叫login_user，如果用户登录，就往login_user中增加这个用户的id，如果用户登出就把这个key从set中删去，然后再用scard命令来统计set中的用户id的数量。</p><p>（但是这个方法对内存的消耗会有点大）</p><h3 id="方案二：">方案二：</h3><p>使用redis的bitmap来存储数据，bitmap本身就是为了亿级数据而诞生的，可以使用他的几个命令，如setbit、getbit和bigcount，用户登录可以用setbit命令去设置一个key为login_status的内容，然后将用户id作为一个位移值，将这个值设为1，即状态为1，那么当用户登出的时候，我们可以使用setbit命令将其状态改为0，如果是判断某个用户是否在线，可以使用getbit命令，如果是统计登录用户数量，可以使用bigcount来进行统计</p><p>（此方法优点是快，去重查重效率高，缺点是bitmap的位移值只能是数字，用户id也只能是自增的纯数字id，不适合分布式架构）</p><h2 id="如果是实现热力地图">如果是实现热力地图</h2><p>则可以使用redis的GEO，使用geoadd、geopos和geohash这些命令</p><p>当然，现在使用es的GEO更省事，如果加上ELK组合，则可以直接生成</p>]]></content>
+    
+    
+    <summary type="html">如何处理亿级用户的登录状态查询</summary>
+    
+    
+    
+    <category term="java笔记" scheme="https://www.mentaltest.run/categories/java%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="情景问题" scheme="https://www.mentaltest.run/tags/%E6%83%85%E6%99%AF%E9%97%AE%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
     <title>微服务面试题</title>
     <link href="https://www.mentaltest.run/posts/d2849c17.html"/>
     <id>https://www.mentaltest.run/posts/d2849c17.html</id>
@@ -286,6 +265,27 @@
     
     
     <category term="java面试题" scheme="https://www.mentaltest.run/tags/java%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常用sql语句</title>
+    <link href="https://www.mentaltest.run/posts/6605dc2.html"/>
+    <id>https://www.mentaltest.run/posts/6605dc2.html</id>
+    <published>2025-02-26T12:33:59.355Z</published>
+    <updated>2025-04-22T03:31:07.476Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="展示所有数据库">展示所有数据库</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> databases</span><br></pre></td></tr></table></figure><h5 id="创建一个student-grade表">创建一个student_grade表</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE TABLE</span> student_grade(</span><br><span class="line">id <span class="type">int</span>,</span><br><span class="line">name <span class="type">VARCHAR</span>(<span class="number">20</span>),</span><br><span class="line">enligsh <span class="type">DECIMAL</span>(<span class="number">3</span>,<span class="number">1</span>),</span><br><span class="line">math <span class="type">DECIMAL</span>(<span class="number">3</span>,<span class="number">1</span>),</span><br><span class="line">chinese <span class="type">DECIMAL</span>(<span class="number">3</span>,<span class="number">1</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure><p><em>此处enligsh为故意写错，方便下面修改示范</em></p><h5 id="插入两个数据">插入两个数据</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT INTO</span> student_grade ( id, NAME, enligsh, math, chinese )</span><br><span class="line"><span class="keyword">VALUES</span></span><br><span class="line">(<span class="number">1</span>,<span class="string">&#x27;李狗蛋&#x27;</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>),</span><br><span class="line">(<span class="number">2</span>,<span class="string">&#x27;聪明的李某人&#x27;</span>,<span class="number">99</span>,<span class="number">99</span>,<span class="number">99</span>);</span><br></pre></td></tr></table></figure><h5 id="查看表结构">查看表结构</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">desc</span> student_grade</span><br></pre></td></tr></table></figure><p>此时发现enligsh拼写错误</p><h5 id="修改字段名">修改字段名</h5><p>参考例句：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER TABLE</span> 表名 CHANGE 旧字段名 新字段名 新数据类型;</span><br></pre></td></tr></table></figure><p>此处所用：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER TABLE</span> student_grade CHANGE enligsh  english <span class="type">DECIMAL</span>(<span class="number">3</span>,<span class="number">1</span>);</span><br></pre></td></tr></table></figure><p>这个方法也可以用来修改指定字段的数据类型，<em><strong>但是修改字段类型需要保证改后的数据类型能兼容之前的数据</strong></em>，例如此处我修改name的长度</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER TABLE</span> student_grade CHANGE name name <span class="type">VARCHAR</span>(<span class="number">100</span>);</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">经常会用到，但是经常忘记的sql语句</summary>
+    
+    
+    
+    <category term="java笔记" scheme="https://www.mentaltest.run/categories/java%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="sql技术" scheme="https://www.mentaltest.run/tags/sql%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   

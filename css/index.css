@@ -1393,7 +1393,7 @@ input::placeholder {
   z-index: -999;
   width: 100%;
   height: 100%;
-  background: url(https://img.aidenpearce.top/blog/ac31cbf4fbc5426fabbdfc49fbe43ac8.jpg);
+  background: #ffffff;
   background-attachment: local;
   background-position: center;
   background-size: cover;
@@ -2140,7 +2140,7 @@ figure.highlight pre .javascript .function {
   border-color: var(--pseudo-hover);
 }
 .article-sort-item-time {
-  color: #858585;
+  color: #666;
   font-size: 95%;
 }
 .article-sort-item-time time {
@@ -2224,7 +2224,7 @@ figure.highlight pre .javascript .function {
 }
 .category-lists .category-list .category-list-count {
   margin-left: 8px;
-  color: #858585;
+  color: #666;
 }
 .category-lists .category-list .category-list-count:before {
   content: '(';
@@ -2992,7 +2992,7 @@ h1.page-title + .tag-cloud-list {
 #aside-content .aside-list > .aside-list-item .content > time,
 #aside-content .aside-list > .aside-list-item .content > .name {
   display: block;
-  color: #858585;
+  color: #666;
   font-size: 85%;
 }
 #aside-content .aside-list > .aside-list-item .content > .title,
@@ -5230,7 +5230,7 @@ mjx-container[display],
 }
 @media screen and (max-width: 800px) {
   #web_bg {
-    background: url(https://img.aidenpearce.top/blog/47d1b1f202c64e588beaba268aaea86f.jfif);
+    background: #ffffff;
     background-attachment: local !important;
     background-position: center !important;
     background-size: cover !important;
@@ -6720,12 +6720,41 @@ center#name-container {
   border-radius: 20px !important;
 }
 
-/* 首页文章卡片 */
+/* 首页文章卡片（纯白阅读风格） */
 #recent-posts > .recent-post-item {
-  background: var(--trans-light);
-  backdrop-filter: var(--backdrop-filter);
+  background: #ffffff;
   border-radius: 25px;
   border: var(--border-style);
+}
+
+/* 白底黑字阅读排版：封面正常显示，仅隐藏五边形小三角装饰，简介改为封面下方的流内深色文字 */
+#recent-posts .recent-post-arrow {
+  display: none;
+}
+#recent-posts .recent-post-content {
+  max-height: none;
+}
+#recent-posts .recent-post-info {
+  height: auto;
+  padding: 15px 25px 10px 25px;
+}
+#recent-posts .recent-post-item .article-content {
+  position: static;
+  height: auto;
+  background: transparent;
+  clip-path: none;
+  padding: 0 25px 15px 25px;
+}
+#recent-posts .recent-post-item .article-content .article-content-text {
+  color: #4c4948;
+  text-shadow: none;
+  margin: 0;
+}
+#recent-posts .recent-post-content:hover .article-content .article-content-text {
+  scale: none;
+}
+[data-theme="dark"] #recent-posts .recent-post-item .article-content .article-content-text {
+  color: #f7f7f7;
 }
 
 /* 首页侧栏卡片 */
